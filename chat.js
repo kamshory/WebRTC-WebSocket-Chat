@@ -763,6 +763,8 @@ var callSuccess = 0;
 
 function processWebRTCInfo(sender_id, receiver_id, command, data) 
 {
+	console.log(command);
+	console.log(data);
 	delete data.sender_id;
 	delete data.receiver_id;
 	delete data.partner_id;
@@ -824,7 +826,7 @@ function processWebRTCInfo(sender_id, receiver_id, command, data)
             );
             break;
         case 'client-offer':
-            onICECandidate(localStream, sender_id, receiver_id);
+           	onICECandidate(localStream, sender_id, receiver_id);
             pc.setRemoteDescription(new RTCSessionDescription(data), function() 
 			{
                 if (answer == 0) 
@@ -1409,7 +1411,7 @@ $(document).ready(function(e) {
 		}, 1000);
 
 		pChat.send(message);
-		startVideoCall(partner_id, '');
+		startVideoCall(partner_id, '', false);
 		e.preventDefault();
 	});
 	
@@ -1430,9 +1432,11 @@ $(document).ready(function(e) {
 });
 var mediaConstrains = {video:true, audio:true};
 
-function startVideoCall(partner_id, chat_room, assCallee) 
+function startVideoCall(partner_id, chat_room, asCallee) 
 {
 	$('.control-area').css({'display':'block'});
+	
+	
     localVideo = document.getElementById('localVideo');
     remoteVideo = document.getElementById('remoteVideo');
     navigator.mediaDevices.getUserMedia(mediaConstrains).then(function(stream) 
@@ -1442,7 +1446,7 @@ function startVideoCall(partner_id, chat_room, assCallee)
         // Go show myself
         localVideo.addEventListener('loadedmetadata',
             function() {
-				if(assCallee)
+				if(asCallee)
 				{
 					var message = JSON.stringify({
 						'command':'client-accept', 
@@ -1464,6 +1468,15 @@ function startVideoCall(partner_id, chat_room, assCallee)
 						);
 					pChat.send(message);
 				}
+				//
+				if(asCallee)
+				{
+					console.log('as callee');
+					var data = {'receiver_id':pChat.myID};
+					var command = 'client-call';
+					var sender_id = partner_id;
+					processWebRTCInfo(sender_id, pChat.myID, command, data) 
+				}
 				
             }
         );
@@ -1472,6 +1485,7 @@ function startVideoCall(partner_id, chat_room, assCallee)
 	{
         console.log("Problem while getting audio video stuff ", e);
     });
+
     localVideo.addEventListener('click', function(e) 
 	{
         var mode = document.querySelector('.video-area').getAttribute('data-mode');

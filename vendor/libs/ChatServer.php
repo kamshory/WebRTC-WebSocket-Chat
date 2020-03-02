@@ -123,11 +123,6 @@ class ChatServer extends WSServer implements WSInterface{
 	public function onMessage($clientChat, $receivedText)
 	{
 		$json_message = json_decode($receivedText, true); 
-		if($json_message['command'] == 'client-offer')
-		{
-			print_r($clientChat->clientData);
-			print_r($json_message);
-		}
 		if(isset($json_message['command']))
 		{
 			$command = $json_message['command'];
@@ -145,7 +140,6 @@ class ChatServer extends WSServer implements WSInterface{
 			$receiver_name = @$this->userOnSystem[$receiver_id]['full_name'];
 	
 			$json_message['data'][0]['receiver_name'] = $receiver_name;
-			
 			
 			if($command == 'send-message')
 			{
@@ -208,8 +202,6 @@ class ChatServer extends WSServer implements WSInterface{
 	}
 	public function videoCall($clientChat, $json_message)
 	{
-		print_r('videoCall');
-		print_r($json_message);
 		$my_id = @$clientChat->clientData['username'];
 		$sender_id = $clientChat->clientData['username'];
 		$sender_name = $clientChat->clientData['full_name'];
