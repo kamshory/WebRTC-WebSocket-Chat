@@ -1,7 +1,6 @@
 <?php
 session_start();
-//unset($_SESSION['username']);
-if(isset($_SESSION['username']))
+if(isset($_SESSION['planet_username']))
 {
 ?><!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -28,6 +27,9 @@ var websocketURL = 'wss://<?php echo $_SERVER['SERVER_NAME'];?>/wss.socket/';
 <div class="all">
 <div class="wrapper">
   <div class="sidebar">
+  	<ul>
+    	<li><a href="logout.php">Logout</a></li>
+    </ul>
     <div class="user-list-area">
         <ul class="user-list">
         </ul>

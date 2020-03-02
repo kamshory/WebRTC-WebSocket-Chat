@@ -69,10 +69,10 @@ class ChatServer extends WSServer implements WSInterface{
 		// You can define it yourself
 		$clientData = array(
 			'login_time'=>date('Y-m-d H:i:s'), 
-			'username'=>$clientChat->sessions['username'], 
-			'full_name'=>$clientChat->sessions['full_name'],
-			'avatar'=>$clientChat->sessions['avatar'],
-			'sex'=>$clientChat->sessions['sex']
+			'username'=>$clientChat->sessions['planet_username'], 
+			'full_name'=>$clientChat->sessions['planet_full_name'],
+			'avatar'=>$clientChat->sessions['planet_avatar'],
+			'sex'=>$clientChat->sessions['planet_sex']
 		);
 		return $clientData;
 	}
@@ -123,6 +123,11 @@ class ChatServer extends WSServer implements WSInterface{
 	public function onMessage($clientChat, $receivedText)
 	{
 		$json_message = json_decode($receivedText, true); 
+		
+		$fp = fopen(dirname(__FILE__)."/log.txt", "a");
+		fputs($fp, "Client = ".print_r($clientChat->clientData, true)."\r\n\r\n".json_encode($json_message)."\r\n\r\n");
+		fclose($fp);
+		
 		if(isset($json_message['command']))
 		{
 			$command = $json_message['command'];

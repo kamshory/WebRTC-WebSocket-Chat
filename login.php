@@ -28,27 +28,27 @@ if(isset($_POST['login']) && isset($_POST['username']) && isset($_POST['full_nam
 		$available = $response_json['data'][0]['available'];
 		if($available)
 		{
-			$_SESSION['username'] = $username;
-			$_SESSION['full_name'] = $full_name;
-			$_SESSION['sex'] = $sex;
-			$_SESSION['avatar'] = 'avatar/'.$sex.'.png';
+			$_SESSION['planet_username'] = $username;
+			$_SESSION['planet_full_name'] = $full_name;
+			$_SESSION['planet_sex'] = $sex;
+			$_SESSION['planet_avatar'] = 'avatar/'.$sex.'.png';
 		}
 		else
 		{
-			unset($_SESSION['username']);
-			unset($_SESSION['password']);
-			unset($_SESSION['full_name']);
-			unset($_SESSION['sex']);
-			unset($_SESSION['avatar']);
+			unset($_SESSION['planet_username']);
+			unset($_SESSION['planet_password']);
+			unset($_SESSION['planet_full_name']);
+			unset($_SESSION['planet_sex']);
+			unset($_SESSION['planet_avatar']);
 		}
 	}
 	else 
 	{
-		unset($_SESSION['username']);
+		unset($_SESSION['planet_username']);
 		unset($_SESSION['password']);
-		unset($_SESSION['full_name']);
-		unset($_SESSION['sex']);
-		unset($_SESSION['avatar']);
+		unset($_SESSION['planet_full_name']);
+		unset($_SESSION['planet_sex']);
+		unset($_SESSION['planet_avatar']);
 	}
 	header("Location: ./");
 }

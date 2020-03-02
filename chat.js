@@ -770,7 +770,6 @@ function processWebRTCInfo(sender_id, receiver_id, command, data)
 	delete data.partner_id;
     switch (command) {
         case 'client-call':
-        case 'client-accept':
 			if(localStream != null)
 			{
 				onICECandidate(localStream, sender_id, receiver_id);
@@ -1436,7 +1435,6 @@ function startVideoCall(partner_id, chat_room, asCallee)
 {
 	$('.control-area').css({'display':'block'});
 	
-	
     localVideo = document.getElementById('localVideo');
     remoteVideo = document.getElementById('remoteVideo');
     navigator.mediaDevices.getUserMedia(mediaConstrains).then(function(stream) 
@@ -1446,38 +1444,14 @@ function startVideoCall(partner_id, chat_room, asCallee)
         // Go show myself
         localVideo.addEventListener('loadedmetadata',
             function() {
-				if(asCallee)
-				{
-					var message = JSON.stringify({
-						'command':'client-accept', 
-							'data':[{
-								'receiver_id' : partner_id,
-								'chat_room' : chat_room
-							}]}
-						);
-					pChat.send(message);
-				}
-				else
-				{
-					var message = JSON.stringify({
-						'command':'client-call', 
-							'data':[{
-								'receiver_id' : partner_id,
-								'chat_room' : chat_room
-							}]}
-						);
-					pChat.send(message);
-				}
-				//
-				if(asCallee)
-				{
-					console.log('as callee');
-					var data = {'receiver_id':pChat.myID};
-					var command = 'client-call';
-					var sender_id = partner_id;
-					processWebRTCInfo(sender_id, pChat.myID, command, data) 
-				}
-				
+				var message = JSON.stringify({
+					'command':'client-call', 
+						'data':[{
+							'receiver_id' : partner_id,
+							'chat_room' : chat_room
+						}]}
+					);
+				pChat.send(message);
             }
         );
 
@@ -1485,6 +1459,16 @@ function startVideoCall(partner_id, chat_room, asCallee)
 	{
         console.log("Problem while getting audio video stuff ", e);
     });
+
+	if(asCallee)
+	{
+		console.log('as callee');
+		var data = {'receiver_id':pChat.myID};
+		var command = 'client-call';
+		var sender_id = partner_id;
+		processWebRTCInfo(sender_id, pChat.myID, command, data) 
+	}
+
 
     localVideo.addEventListener('click', function(e) 
 	{
