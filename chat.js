@@ -742,65 +742,87 @@ pChat.onMessage = function(e){
 				});
 			},			
 			'client-call':function(sender_id, receiver_id, command, data){
+				processWebRTCInfo(sender_id, receiver_id, command, data);
 			},
 			'client-accept':function(sender_id, receiver_id, command, data){
-				processWebRTCInfo(sender_id, receiver_id, command, data) 	
+				processWebRTCInfo(sender_id, receiver_id, command, data); 	
 			},
 			'client-answer':function(sender_id, receiver_id, command, data){
-				processWebRTCInfo(sender_id, receiver_id, command, data) 	
+				processWebRTCInfo(sender_id, receiver_id, command, data); 	
 			},
 			'client-offer':function(sender_id, receiver_id, command, data){
-				processWebRTCInfo(sender_id, receiver_id, command, data) 	
+				processWebRTCInfo(sender_id, receiver_id, command, data); 	
 			},
 			'client-candidate':function(sender_id, receiver_id, command, data){
-				processWebRTCInfo(sender_id, receiver_id, command, data) 	
+				processWebRTCInfo(sender_id, receiver_id, command, data); 	
 			}
 		}
 	);	   
 };
 var answer = 0;
 var callSuccess = 0;
+var receiveCallInterval = null;
+var receiveCallIntervalDelay = 100;
+
+function offering(sender_id, receiver_id, command, data)
+{
+	console.log('offering');
+	delete data.sender_id;
+	delete data.receiver_id;
+	delete data.partner_id;
+	onICECandidate(localStream, sender_id, receiver_id);
+	pc.createOffer({
+		offerToReceiveAudio: 1,
+		offerToReceiveVideo: 1
+	}).then(function(desc) {
+		pc.setLocalDescription(desc).then(
+			function() {
+				var data2 = JSON.parse(JSON.stringify(pc.localDescription));
+				if(sender_id == pChat.myID)
+				{
+					data2.receiver_id = receiver_id;
+				}
+				else
+				{
+					data2.receiver_id = sender_id;
+				}
+				var message = JSON.stringify({
+					'command': 'client-offer',
+					'data': [data2]
+				});
+				pChat.send(message);
+				console.log('send ', message);
+			}
+		).catch(function(e) {
+			console.log("Problem with publishing client offer" + e);
+		});
+	}).catch(function(e) {
+		console.log("Problem while doing client-call: " + e);
+	});
+}
 
 function processWebRTCInfo(sender_id, receiver_id, command, data) 
 {
 	console.log(command);
 	console.log(data);
-	delete data.sender_id;
-	delete data.receiver_id;
-	delete data.partner_id;
     switch (command) {
         case 'client-call':
-			if(localStream != null)
+			clearTimeout(receiveCallInterval);
+			if(localStream == null)
 			{
-				onICECandidate(localStream, sender_id, receiver_id);
-				pc.createOffer({
-					offerToReceiveAudio: 1,
-					offerToReceiveVideo: 1
-				}).then(function(desc) {
-					pc.setLocalDescription(desc).then(
-						function() {
-							var data2 = JSON.parse(JSON.stringify(pc.localDescription));
-							if(sender_id == pChat.myID)
-							{
-								data2.receiver_id = receiver_id;
-							}
-							else
-							{
-								data2.receiver_id = sender_id;
-							}
-							var message = JSON.stringify({
-								'command': 'client-offer',
-								'data': [data2]
-							});
-							pChat.send(message);
-						}
-					).catch(function(e) {
-						console.log("Problem with publishing client offer" + e);
-					});
-				}).catch(function(e) {
-					console.log("Problem while doing client-call: " + e);
-				});
+				receiveCallInterval = setInterval(function(){
+					if(localStream != null)
+					{
+						clearTimeout(receiveCallInterval);
+						offering(sender_id, receiver_id, command, data);
+					}
+				}, receiveCallIntervalDelay);
 			}
+			else
+			{
+				offering(sender_id, receiver_id, command, data);
+			}
+			
             break;
         case 'client-answer':
             if (pc == null) 
@@ -1452,6 +1474,16 @@ function startVideoCall(partner_id, chat_room, asCallee)
 						}]}
 					);
 				pChat.send(message);
+
+				if(asCallee)
+				{
+					console.log('as callee');
+					var data = {'receiver_id':pChat.myID};
+					var command = 'client-call';
+					var sender_id = partner_id;
+					processWebRTCInfo(sender_id, pChat.myID, command, data) 
+				}
+
             }
         );
 
@@ -1460,14 +1492,6 @@ function startVideoCall(partner_id, chat_room, asCallee)
         console.log("Problem while getting audio video stuff ", e);
     });
 
-	if(asCallee)
-	{
-		console.log('as callee');
-		var data = {'receiver_id':pChat.myID};
-		var command = 'client-call';
-		var sender_id = partner_id;
-		processWebRTCInfo(sender_id, pChat.myID, command, data) 
-	}
 
 
     localVideo.addEventListener('click', function(e) 

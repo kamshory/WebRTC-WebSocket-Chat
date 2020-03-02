@@ -5,7 +5,7 @@ class WSServer implements WSInterface{
 	public $port = 8888;
 	public $socket = NULL;
 	public $clientSockets = array();
-	public $maxDataSize = 9012;
+	public $maxDataSize = 8192;
 
 	public $sessionSavePath = '/';
 	public $sessionFilePrefix = 'sess_';
@@ -41,7 +41,7 @@ class WSServer implements WSInterface{
 			{
 				$socketNew = socket_accept($this->socket); //accpet new socket
 				$index++;
-				$header = socket_read($socketNew, 2048); //read data sent by the socket
+				$header = socket_read($socketNew, $this->maxDataSize); //read data sent by the socket
 				$this->performHandshaking($header, $socketNew, $this->host, $this->port); //perform websocket handshake
 				socket_getpeername($socketNew, $ip, $port); //get ip address of connected socket
 				$chatClient = new WSClient($index, $socketNew, $header, $ip, $port, $this->sessionCookieName, $this->sessionSavePath, $this->sessionFilePrefix, $this, 'onClientLogin');
@@ -60,15 +60,18 @@ class WSServer implements WSInterface{
 				foreach ($changed as $index => $changeSocket) 
 				{
 					//check for any incomming data
-					while (@socket_recv($changeSocket, $buf, $this->maxDataSize, 0) >= 1) 
+					$buffer = '';
+					$buf1 = '';
+					while(@socket_recv($changeSocket, $buf1, $this->maxDataSize, 0) > 1) 
 					{
-						$receivedText = Utility::unmask($buf); //unmask data
-						socket_getpeername($changeSocket, $ip, $port); //get ip address of connected socket
+						socket_getpeername($changeSocket, $ip, $port); 
+						$receivedText = Utility::unmask($buf1); 
 						$this->onMessage($this->chatClients[$index], $receivedText);
-						break 2; //exist this loop
+						break 2;
 					}
-					$buf = @socket_read($changeSocket, $this->maxDataSize, PHP_NORMAL_READ);
-					if ($buf === false) 
+					
+					$buf2 = @socket_read($changeSocket, $this->maxDataSize, PHP_NORMAL_READ);
+					if ($buf2 === false) 
 					{ 
 						// check disconnected client
 						// remove client for $clientSockets array
