@@ -5,7 +5,7 @@ class WSServer implements WSInterface{
 	public $port = 8888;
 	public $socket = NULL;
 	public $clientSockets = array();
-	public $maxDataSize = 8192;
+	public $maxDataSize = 4096;
 
 	public $sessionSavePath = '/';
 	public $sessionFilePrefix = 'sess_';
