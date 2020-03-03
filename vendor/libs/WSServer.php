@@ -26,6 +26,39 @@ class WSServer implements WSInterface{
 		$this->clientSockets = array($this->socket);
 		$this->sessionSavePath = session_save_path();
 	}
+	public function unseal($socketData) {
+		$length = ord($socketData[1]) & 127;
+		if($length == 126) {
+			$masks = substr($socketData, 4, 4);
+			$data = substr($socketData, 8);
+		}
+		elseif($length == 127) {
+			$masks = substr($socketData, 10, 4);
+			$data = substr($socketData, 14);
+		}
+		else {
+			$masks = substr($socketData, 2, 4);
+			$data = substr($socketData, 6);
+		}
+		$socketData = "";
+		for ($i = 0; $i < strlen($data); ++$i) {
+			$socketData .= $data[$i] ^ $masks[$i%4];
+		}
+		return $socketData;
+	}
+
+	public function seal($socketData) {
+		$b1 = 0x80 | (0x1 & 0x0f);
+		$length = strlen($socketData);
+		
+		if($length <= 125)
+			$header = pack('CC', $b1, $length);
+		elseif($length > 125 && $length < 65536)
+			$header = pack('CCn', $b1, 126, $length);
+		elseif($length >= 65536)
+			$header = pack('CCNN', $b1, 127, $length);
+		return $header.$socketData;
+	}
 	public function run()
 	{
 		$index = 0;
@@ -62,11 +95,21 @@ class WSServer implements WSInterface{
 					//check for any incomming data
 					$buffer = '';
 					$buf1 = '';
+					
+					
+					/*
 					while(@socket_recv($changeSocket, $buf1, $this->maxDataSize, 0) > 1) 
 					{
 						socket_getpeername($changeSocket, $ip, $port); 
 						$receivedText = Utility::unmask($buf1); 
 						$this->onMessage($this->chatClients[$index], $receivedText);
+						break 2;
+					}
+					*/
+					while(socket_recv($changeSocket, $socketData, 1024, 0) >= 1){
+						$socketMessage = $this->unseal($socketData);
+						socket_getpeername($changeSocket, $ip, $port);
+						$this->onMessage($this->chatClients[$index], $socketMessage);
 						break 2;
 					}
 					
