@@ -50,7 +50,7 @@ class WSServer implements WSInterface{
 			while (true) 
 			{
 				$read = $this->clientSockets;
-				$mod_fd = stream_select($read, $_w, $_e, 0, 10000);
+				$mod_fd = stream_select($read, $_w, $_e, 0, 10);
 				
 				if ($mod_fd === FALSE) 
 				{
@@ -69,6 +69,7 @@ class WSServer implements WSInterface{
 					if ($read[$i] === $this->masterSocket) 
 					{
 						$clientSocket = stream_socket_accept($this->masterSocket);	
+						stream_set_blocking($clientSocket, 0);
 						$this->handleClientSocket($clientSocket);
 					} 
 					else 
@@ -78,7 +79,6 @@ class WSServer implements WSInterface{
 							continue;
 						}
 						$sock_data = fread($read[$i], 1024);
-						var_dump($sock_data);
 						if (strlen($sock_data) === 0) 
 						{ // connection closed
 							$key_to_del = array_search($read[$i], $this->clientSockets, TRUE);
@@ -96,7 +96,7 @@ class WSServer implements WSInterface{
 							echo "The client has sent :"; var_dump($sock_data);
 							fwrite($read[$i], "You have sent :[".$sock_data."]\n");
 							fclose($read[$i]);
-							 unset($this->clientSockets[array_search($read[$i], $this->clientSockets)]);
+							unset($this->clientSockets[array_search($read[$i], $this->clientSockets)]);
 						}
 					}
 				}
