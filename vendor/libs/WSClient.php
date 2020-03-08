@@ -126,7 +126,7 @@ class WSClient{
 				. "X-Engine: PlanetChat\r\n\r\n";
 //				echo $recevedHeader."\r\n\r\n";
 //				echo $upgrade;
-			socket_write($this->socket, $upgrade, strlen($upgrade));
+			fwrite($this->socket, $upgrade, strlen($upgrade));
 		}
 	}
 	
