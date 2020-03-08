@@ -3,9 +3,10 @@ class WSServer implements WSInterface{
 	public $chatClients = array();
 	public $host = '127.0.0.1';
 	public $port = 8888;
-	public $socket = NULL;
+	public $masterSocket = NULL;
 	public $clientSockets = array();
-	public $maxDataSize = 4096;
+	public $dataChunk = 128;
+	public $maxHeaderSize = 2048;
 
 	public $sessionSavePath = '/';
 	public $sessionFilePrefix = 'sess_';
@@ -16,49 +17,18 @@ class WSServer implements WSInterface{
 		$this->host = $host;
 		$this->port = $port;
 
-		$this->socket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+		$this->masterSocket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
 		// reuseable port
-		socket_set_option($this->socket, SOL_SOCKET, SO_REUSEADDR, 1);
+		socket_set_option($this->masterSocket, SOL_SOCKET, SO_REUSEADDR, 1);
 		// bind socket to specified host
-		socket_bind($this->socket, 0, $this->port);
+		socket_bind($this->masterSocket, 0, $this->port);
 		// listen to port
-		socket_listen($this->socket);
-		$this->clientSockets = array($this->socket);
+		socket_listen($this->masterSocket);
+		$this->clientSockets = array($this->masterSocket);
 		$this->sessionSavePath = session_save_path();
+		echo "Server started ad ".$this->port."\r\n";
 	}
-	public function unseal($socketData) {
-		$length = ord($socketData[1]) & 127;
-		if($length == 126) {
-			$masks = substr($socketData, 4, 4);
-			$data = substr($socketData, 8);
-		}
-		elseif($length == 127) {
-			$masks = substr($socketData, 10, 4);
-			$data = substr($socketData, 14);
-		}
-		else {
-			$masks = substr($socketData, 2, 4);
-			$data = substr($socketData, 6);
-		}
-		$socketData = "";
-		for ($i = 0; $i < strlen($data); ++$i) {
-			$socketData .= $data[$i] ^ $masks[$i%4];
-		}
-		return $socketData;
-	}
-
-	public function seal($socketData) {
-		$b1 = 0x80 | (0x1 & 0x0f);
-		$length = strlen($socketData);
-		
-		if($length <= 125)
-			$header = pack('CC', $b1, $length);
-		elseif($length > 125 && $length < 65536)
-			$header = pack('CCn', $b1, 126, $length);
-		elseif($length >= 65536)
-			$header = pack('CCNN', $b1, 127, $length);
-		return $header.$socketData;
-	}
+	
 	public function run()
 	{
 		$index = 0;
@@ -68,24 +38,30 @@ class WSServer implements WSInterface{
 			// manage multiple connections
 			$changed = $this->clientSockets;
 			// returns the socket resources in $changed array
-			@socket_select($changed, $null, $null, 0, 10);
-			// check for new socket
-			if (in_array($this->socket, $changed)) 
+			if(@socket_select($changed, $null, $null, 0, 10000) < 1)
 			{
-				$socketNew = socket_accept($this->socket); //accpet new socket
-				$index++;
-				$header = socket_read($socketNew, $this->maxDataSize); //read data sent by the socket
-				$this->performHandshaking($header, $socketNew, $this->host, $this->port); //perform websocket handshake
-				socket_getpeername($socketNew, $ip, $port); //get ip address of connected socket
-				$chatClient = new WSClient($index, $socketNew, $header, $ip, $port, $this->sessionCookieName, $this->sessionSavePath, $this->sessionFilePrefix, $this, 'onClientLogin');
-
-				$this->clientSockets[$index] = $socketNew; //add socket to client array
-				$this->chatClients[$index] = $chatClient;
-				$this->onOpen($chatClient);
-				
-				//make room for new socket
-				$foundSocket = array_search($this->socket, $changed);
-				unset($changed[$foundSocket]);
+				continue;
+			}
+			// check for new socket
+			if (in_array($this->masterSocket, $changed)) 
+			{
+				$clientSocket = socket_accept($this->masterSocket); //accpet new socket
+				$header = socket_read($clientSocket, $this->maxHeaderSize); //read data sent by the socket
+				$header = trim($header, " \r\n ");
+				if(strlen($header) > 2)
+				{
+					if(stripos($header, 'Sec-WebSocket-Key') !== false)
+					{
+						$index++;
+						socket_getpeername($clientSocket, $remoteAddress, $remotePort); //get ip address of connected socket
+						$chatClient = new WSClient($index, $clientSocket, $header, $remoteAddress, $remotePort, $this->sessionCookieName, $this->sessionSavePath, $this->sessionFilePrefix, $this, 'onClientLogin');
+						$this->clientSockets[$index] = $clientSocket; //add socket to client array
+						$this->chatClients[$index] = $chatClient;
+						$this->onOpen($chatClient);
+						$foundSocket = array_search($this->masterSocket, $changed);
+						unset($changed[$foundSocket]);
+					}
+				}
 			}
 			if(is_array($changed))
 			{
@@ -93,42 +69,182 @@ class WSServer implements WSInterface{
 				foreach ($changed as $index => $changeSocket) 
 				{
 					//check for any incomming data
+					
 					$buffer = '';
 					$buf1 = '';
-					
-					
-					/*
-					while(@socket_recv($changeSocket, $buf1, $this->maxDataSize, 0) > 1) 
+					$nread = 0;
+					do
 					{
-						socket_getpeername($changeSocket, $ip, $port); 
-						$receivedText = Utility::unmask($buf1); 
-						$this->onMessage($this->chatClients[$index], $receivedText);
-						break 2;
+						$recv = @socket_recv($changeSocket, $buf1, $this->dataChunk, 0); 
+						if($recv > 1)
+						{
+							$nread++;
+							$buffer .= $buf1;
+							if($recv < $this->dataChunk || $recv === false)
+							{
+								break;
+							}
+						}
+						else
+						{
+							break;
+						}
 					}
-					*/
-					while(socket_recv($changeSocket, $socketData, 1024, 0) >= 1){
-						$socketMessage = $this->unseal($socketData);
-						socket_getpeername($changeSocket, $ip, $port);
-						$this->onMessage($this->chatClients[$index], $socketMessage);
-						break 2;
+					while($recv > 0);
+					if($nread > 0)
+					{
+						if(strlen($buffer) > 0)
+						{
+							socket_getpeername($changeSocket, $ip, $port); 
+							$decodedData = Utility::unmask($buffer); 
+							if(isset($decodedData['type']))
+							{
+								if($decodedData['type'] == 'close')
+								{
+									break;
+								}
+								else
+								{
+									$this->onMessage($this->chatClients[$index], $decodedData['payload']);
+									break;
+								}
+							}
+							else
+							{
+								break;
+							}
+						}
 					}
-					
-					$buf2 = @socket_read($changeSocket, $this->maxDataSize, PHP_NORMAL_READ);
+					$buf2 = @socket_read($changeSocket, $this->dataChunk, PHP_NORMAL_READ);
+					echo "buf2\r\n";
+					var_dump($buf2);
 					if ($buf2 === false) 
 					{ 
 						// check disconnected client
 						// remove client for $clientSockets array
 						$foundSocket = array_search($changeSocket, $this->clientSockets);
-						@socket_getpeername($changeSocket, $ip, $port);
-						$closeClient = $this->chatClients[$foundSocket];
-						unset($this->clientSockets[$foundSocket]);
-						unset($this->chatClients[$foundSocket]);
-						$this->onClose($closeClient);
+						if(isset($this->chatClients[$foundSocket]))
+						{
+							$closeClient = $this->chatClients[$foundSocket];
+							unset($this->clientSockets[$foundSocket]);
+							unset($this->chatClients[$foundSocket]);
+							$this->onClose($closeClient);
+						}
 					}
 				}
 			}
 		}
 	}
+	
+	public function run3()
+	{
+   		$index = 0;
+		while (true) 
+		{
+			// create a copy, so $this->masterSocket doesn't get modified by socket_select()
+			$read = $this->clientSockets;
+		   
+			// get a list of all the clients that have data to be read from
+			// if there are no clients with data, go to next iteration
+			if (@socket_select($read, $write = NULL, $except = NULL, 0) < 1)
+				continue;
+		   
+			// check if there is a client trying to connect
+			if (in_array($this->masterSocket, $read)) 
+			{
+				// accept the client, and add him to the $this->clientSockets array
+				$clientSocket = socket_accept($this->masterSocket);
+			   	$this->clientSockets[$index] = $clientSocket;
+				// send the client a welcome message
+			   
+				socket_getpeername($clientSocket, $ip);
+				echo "New client connected: {$ip}\n";
+			   
+				// remove the listening socket from the clients-with-data array
+				$key = array_search($this->masterSocket, $read);
+				unset($read[$key]);
+			}
+		   
+			// loop through all the clients that have data to read from
+			foreach ($read as $read_sock) {
+				// read until newline or 1024 bytes
+				// socket_read while show errors when the client is disconnected, so silence the error messages
+				$data = @socket_read($read_sock, 1024, PHP_NORMAL_READ);
+			   
+				// check if the client is disconnected
+				if ($data === false) 
+				{
+					// remove client for $this->clientSockets array
+					
+					
+					$key = array_search($read_sock, $this->clientSockets);
+					unset($this->clientSockets[$key]);
+					echo "client disconnected.\n";
+					// continue to the next client to read from, if any
+					continue;
+				}
+			   
+				// trim off the trailing/beginning white spaces
+				$data = trim($data);
+			   
+				// check if there is any data after trimming off the spaces
+				if (!empty($data)) {
+			   
+					// send this to all the clients in the $this->clientSockets array (except the first one, which is a listening socket)
+					
+					$header = $data;
+					echo 'data = '.$data."\r\n";
+					if(stripos($header, 'Sec-WebSocket-Key') !== false)
+					{
+						socket_getpeername($read_sock, $remoteAddress, $remotePort); //get ip address of connected socket
+						echo "header = $header\r\n";
+						$chatClient = new WSClient($index, $read_sock, $header, $remoteAddress, $remotePort, $this->sessionCookieName, $this->sessionSavePath, $this->sessionFilePrefix, $this, 'onClientLogin');
+						$this->chatClients[$index] = $chatClient;
+						echo "onOpen\r\n";
+						$this->onOpen($chatClient);
+						$foundSocket = array_search($this->masterSocket, $changed);
+						unset($read[$foundSocket]);
+					}
+					
+					foreach ($this->clientSockets as $send_sock) {
+				   
+						// if its the listening sock or the client that we got the message from, go to the next one in the list
+						if ($send_sock == $this->masterSocket || $send_sock == $read_sock)
+							continue;
+					   
+						// write the message to the client -- add a newline character to the end of the message
+						socket_write($send_sock, $data."\n");
+					   
+					} // end of broadcast foreach
+				   
+				}
+				else
+				{
+					
+				}
+			   
+			} // end of reading foreach
+		}
+	
+		// close the listening socket
+		socket_close($this->masterSocket);
+	}
+	
+	
+	
+	
+	
+	
+	public function seal($data) 
+	{
+		return $this->hybi10Encode($data);
+	}
+	public function unseal($data) 
+	{
+		$decodedData = $this->hybi10Decode($data);
+		return $decodedData['payload'];
+	}
+
 	public function onClientLogin($clientChat)
 	{
 	}
@@ -171,39 +287,8 @@ class WSServer implements WSInterface{
 			$client->send($message);
 		}
 	}
-	/**
-	 * Handshake new client
-	 * @param $recevedHeader Request header sent by the client
-	 * @param $client_conn Client connection
-	 * @param $host Host name of the websocket server
-	 * @param $port Port number of the websocket server
-	 */
-	public function performHandshaking($recevedHeader, $client_conn, $host, $port)
-	{
-		$headers = array();
-		$lines = preg_split("/\r\n/", $recevedHeader);
-		foreach ($lines as $line) 
-		{
-			$line = chop($line);
-			if (preg_match('/\A(\S+): (.*)\z/', $line, $matches)) 
-			{
-				$headers[$matches[1]] = $matches[2];
-			}
-		}
-		if(isset($headers['Sec-WebSocket-Key']))
-		{
-			$secKey = $headers['Sec-WebSocket-Key'];
-			$secAccept = base64_encode(pack('H*', sha1($secKey . '258EAFA5-E914-47DA-95CA-C5AB0DC85B11')));
-			//hand shaking header
-			$upgrade = "HTTP/1.1 101 Web Socket Protocol Handshake\r\n" 
-				. "Upgrade: websocket\r\n" . "Connection: Upgrade\r\n" 
-				. "WebSocket-Origin: $host\r\n" 
-				. "WebSocket-Location: ws://$host:$port\r\n" 
-				. "Sec-WebSocket-Accept: $secAccept\r\n"
-				. "X-Engine: PlanetChat\r\n\r\n";
-			socket_write($client_conn, $upgrade, strlen($upgrade));
-		}
-	}
+
+	
 	/**
 	/**
 	 * Destructor

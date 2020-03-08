@@ -83,7 +83,6 @@ class ChatServer extends WSServer implements WSInterface{
 	public function onClose($clientChat)
 	{
 		$clientData = $clientChat->clientData;
-
 		// Send user logout		
 		if(isset($clientData['username']))
 		{
@@ -137,12 +136,19 @@ class ChatServer extends WSServer implements WSInterface{
 			$json_message['data'][0]['sender_name'] = $clientChat->clientData['full_name'];
 			$json_message['data'][0]['sender_id'] = $clientChat->clientData['username'];
 			
-			$receiver_id = $json_message['data'][0]['receiver_id'];
-			$json_message['data'][0]['partner_id'] = $receiver_id;
-	
-			$receiver_name = @$this->userOnSystem[$receiver_id]['full_name'];
-	
-			$json_message['data'][0]['receiver_name'] = $receiver_name;
+			if(isset($json_message['data'][0]['receiver_id']))
+			{
+				$receiver_id = $json_message['data'][0]['receiver_id'];
+				$json_message['data'][0]['partner_id'] = $receiver_id;
+				if(isset($this->userOnSystem[$receiver_id]))
+				{
+					if(isset($this->userOnSystem[$receiver_id]['full_name']))
+					{
+						$receiver_name = @$this->userOnSystem[$receiver_id]['full_name'];
+						$json_message['data'][0]['receiver_name'] = $receiver_name;
+					}
+				}
+			}
 			
 			if($command == 'send-message')
 			{

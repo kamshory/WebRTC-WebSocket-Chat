@@ -1,5 +1,6 @@
 <?php
 session_start();
+header("Access-Control-Allow-Origin: *");
 if(isset($_SESSION['planet_username']))
 {
 ?><!DOCTYPE html>
@@ -11,7 +12,17 @@ if(isset($_SESSION['planet_username']))
 <link rel="stylesheet" href="chat.css?rand=<?php echo mt_rand(1,99999999);?>">
 <link rel="stylesheet" href="icon.css">
 <script type="text/javascript">
-var websocketURL = 'wss://<?php echo $_SERVER['SERVER_NAME'];?>/wss.socket/';
+var websocketURL = '';
+if(window.location.protocol.toString() == 'https:')
+{
+	websocketURL = 'wss://<?php echo $_SERVER['SERVER_NAME'];?>/wss.socket/';
+}
+else
+{
+	websocketURL = 'ws://<?php echo $_SERVER['SERVER_NAME'];?>:8888/';
+}
+console.log(window.location.protocol.toString());
+console.log(websocketURL);
 </script>
 <script type="text/javascript" src="jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="tab-control.js"></script>

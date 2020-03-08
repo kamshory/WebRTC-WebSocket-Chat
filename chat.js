@@ -124,6 +124,7 @@ function planetChat(container, pMessage, websocketURL)
 	this.websocketURL = websocketURL;
 	this.connected = false;
 	this.firstConnect = true;	
+	this.reconnectTimeout = null;
 	this.init = function()
 	{
 	}
@@ -168,6 +169,7 @@ function planetChat(container, pMessage, websocketURL)
 				_this.connect();
 			}
 			this.conn.onmessage = function(e){
+				console.log('onmessage', e.data);
 				_this.connected = true;
 				_this.onMessage(e);
 			}
@@ -177,7 +179,6 @@ function planetChat(container, pMessage, websocketURL)
 			console.error(e);
 		}
 	}
-	this.reconnectTimeout = null;
 	this.onFirstConnect = function(event)
 	{
 	};
@@ -186,15 +187,15 @@ function planetChat(container, pMessage, websocketURL)
 	};
 	this.onOpen = function(e)
 	{
-		console.log(e);
+		console.log('onOpen', e);
 	};
 	this.onError = function(e)
 	{
-		// console.log(e);
+		console.error('onError', e);
 	};
 	this.onClose = function(e)
 	{
-		// console.log(e);
+		console.log('onClose', e);
 	};
 	this.onMessage = function(m)
 	{
@@ -202,11 +203,14 @@ function planetChat(container, pMessage, websocketURL)
 	};
 	this.send = function(message)
 	{
+		console.log('send');
 		try
 		{
 			if(this.connected)
 			{
+				console.log('connected');
 				this.conn.send(message);
+				console.log('send message', message);
 			}
 			else
 			{
@@ -219,6 +223,7 @@ function planetChat(container, pMessage, websocketURL)
 		}
 		catch(e)
 		{
+			console.error('catch', e);
 			this.onReconnect = function(event)
 			{
 				this.conn.send(message);
@@ -912,7 +917,7 @@ function sendOnCallSignal(partner_id, chat_room)
 				chat_room: chat_room
 			}]
 		};
-		socket.send(JSON.stringify(data));
+		pChat.send(JSON.stringify(data));
 	}
 	else
 	{
@@ -1477,7 +1482,7 @@ function startVideoCall(partner_id, chat_room, asCallee)
 
 				if(asCallee)
 				{
-					console.log('as callee');
+					console.log('as callee\r\n------------------------------------------------------------------------------------------------------');
 					var data = {'receiver_id':pChat.myID};
 					var command = 'client-call';
 					var sender_id = partner_id;

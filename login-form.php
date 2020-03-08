@@ -42,6 +42,7 @@ input[type="submit"]:hover {
 	width: auto;
 	padding: 10px 18px;
 	background-color: #f44336;
+	border:none;
 }
 
 .imgcontainer {
@@ -81,6 +82,7 @@ span.psw a {
 	text-decoration: none;
 }
 </style>
+<title>Login</title>
 </head>
 <body>
 

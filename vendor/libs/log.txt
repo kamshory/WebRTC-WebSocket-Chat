@@ -1,0 +1,1911 @@
+Client = Array
+(
+    [login_time] => 2020-03-08 11:16:45
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"video-call","data":[{"receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:16:45
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"client-call","data":[{"receiver_id":"Kamshory","chat_room":""}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-offer","data":[{"type":"offer","sdp":"v=0\r\no=mozilla...THIS_IS_SDPARTA-73.0.1 2826246469829270423 0 IN IP4 0.0.0.0\r\ns=-\r\nt=0 0\r\na=sendrecv\r\na=fingerprint:sha-256 BA:5C:45:5A:34:DF:C9:D3:D4:CD:23:7D:20:E8:BE:1E:58:8A:7F:E4:4C:89:10:B0:B7:4F:5B:F2:94:B0:0B:F5\r\na=group:BUNDLE 0 1\r\na=ice-options:trickle\r\na=msid-semantic:WMS *\r\nm=audio 9 UDP/TLS/RTP/SAVPF 109 9 0 8 101\r\nc=IN IP4 0.0.0.0\r\na=sendrecv\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:2/recvonly urn:ietf:params:rtp-hdrext:csrc-audio-level\r\na=extmap:3 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=fmtp:109 maxplaybackrate=48000;stereo=1;useinbandfec=1\r\na=fmtp:101 0-15\r\na=ice-pwd:878a8a20e226d6e40b2cd1724d8f83ad\r\na=ice-ufrag:98652615\r\na=mid:0\r\na=msid:{1348cfa2-7c33-4712-8345-3b5d3f1ff938} {de116c4b-6fb2-41a6-910c-b24999c028c3}\r\na=rtcp-mux\r\na=rtpmap:109 opus/48000/2\r\na=rtpmap:9 G722/8000/1\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:101 telephone-event/8000\r\na=setup:actpass\r\na=ssrc:1356702099 cname:{d167d24b-8c34-48e7-b8de-eb051171ddce}\r\nm=video 9 UDP/TLS/RTP/SAVPF 120 121 126 97\r\nc=IN IP4 0.0.0.0\r\na=sendrecv\r\na=extmap:3 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=extmap:4 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:5 urn:ietf:params:rtp-hdrext:toffset\r\na=extmap:6/recvonly http://www.webrtc.org/experiments/rtp-hdrext/playout-delay\r\na=fmtp:126 profile-level-id=42e01f;level-asymmetry-allowed=1;packetization-mode=1\r\na=fmtp:97 profile-level-id=42e01f;level-asymmetry-allowed=1\r\na=fmtp:120 max-fs=12288;max-fr=60\r\na=fmtp:121 max-fs=12288;max-fr=60\r\na=ice-pwd:878a8a20e226d6e40b2cd1724d8f83ad\r\na=ice-ufrag:98652615\r\na=mid:1\r\na=msid:{1348cfa2-7c33-4712-8345-3b5d3f1ff938} {bffb75a4-b2c4-4394-bc1f-482dd68f706c}\r\na=rtcp-fb:120 nack\r\na=rtcp-fb:120 nack pli\r\na=rtcp-fb:120 ccm fir\r\na=rtcp-fb:120 goog-remb\r\na=rtcp-fb:121 nack\r\na=rtcp-fb:121 nack pli\r\na=rtcp-fb:121 ccm fir\r\na=rtcp-fb:121 goog-remb\r\na=rtcp-fb:126 nack\r\na=rtcp-fb:126 nack pli\r\na=rtcp-fb:126 ccm fir\r\na=rtcp-fb:126 goog-remb\r\na=rtcp-fb:97 nack\r\na=rtcp-fb:97 nack pli\r\na=rtcp-fb:97 ccm fir\r\na=rtcp-fb:97 goog-remb\r\na=rtcp-mux\r\na=rtpmap:120 VP8/90000\r\na=rtpmap:121 VP9/90000\r\na=rtpmap:126 H264/90000\r\na=rtpmap:97 H264/90000\r\na=setup:actpass\r\na=ssrc:3068632265 cname:{d167d24b-8c34-48e7-b8de-eb051171ddce}\r\n","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:0 1 UDP 2122187007 192.168.1.7 50161 typ host","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"98652615","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:4 1 UDP 2122252543 172.18.68.97 50162 typ host","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"98652615","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:8 1 TCP 2105458943 192.168.1.7 9 typ host tcptype active","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"98652615","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:9 1 TCP 2105524479 172.18.68.97 9 typ host tcptype active","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"98652615","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:0 2 UDP 2122187006 192.168.1.7 50163 typ host","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"98652615","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:4 2 UDP 2122252542 172.18.68.97 63871 typ host","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"98652615","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:8 2 TCP 2105458942 192.168.1.7 9 typ host tcptype active","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"98652615","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:9 2 TCP 2105524478 172.18.68.97 9 typ host tcptype active","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"98652615","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:0 1 UDP 2122187007 192.168.1.7 63872 typ host","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"98652615","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:4 1 UDP 2122252543 172.18.68.97 63873 typ host","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"98652615","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:8 1 TCP 2105458943 192.168.1.7 9 typ host tcptype active","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"98652615","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:9 1 TCP 2105524479 172.18.68.97 9 typ host tcptype active","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"98652615","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:0 2 UDP 2122187006 192.168.1.7 63874 typ host","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"98652615","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:4 2 UDP 2122252542 172.18.68.97 63875 typ host","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"98652615","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:8 2 TCP 2105458942 192.168.1.7 9 typ host tcptype active","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"98652615","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:9 2 TCP 2105524478 172.18.68.97 9 typ host tcptype active","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"98652615","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:16:45
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"client-answer","data":[{"type":"answer","sdp":"v=0\r\no=- 5739453079740403556 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE 0 1\r\na=msid-semantic: WMS CS4dtrwzwvWgn7LXczCk8dnTgHLGcf5Uy41y\r\nm=audio 9 UDP/TLS/RTP/SAVPF 109 9 0 8 101\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:pXDe\r\na=ice-pwd:oZ5GUQZhbJwxMIbQc3yMkl3K\r\na=ice-options:trickle\r\na=fingerprint:sha-256 C0:70:04:51:6A:81:04:F3:47:53:C3:17:F8:18:3F:F3:CB:DD:E0:27:BB:FF:5D:40:C0:4B:99:5F:93:C8:3E:52\r\na=setup:active\r\na=mid:0\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:3 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=sendrecv\r\na=msid:CS4dtrwzwvWgn7LXczCk8dnTgHLGcf5Uy41y f51e6bb3-d322-4e93-bfb9-d57945f59d01\r\na=rtcp-mux\r\na=rtpmap:109 opus/48000/2\r\na=fmtp:109 minptime=10;useinbandfec=1\r\na=rtpmap:9 G722/8000\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:101 telephone-event/8000\r\na=ssrc:4266625434 cname:iTyVAKh7viWDN3RR\r\nm=video 9 UDP/TLS/RTP/SAVPF 120 121 126\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:pXDe\r\na=ice-pwd:oZ5GUQZhbJwxMIbQc3yMkl3K\r\na=ice-options:trickle\r\na=fingerprint:sha-256 C0:70:04:51:6A:81:04:F3:47:53:C3:17:F8:18:3F:F3:CB:DD:E0:27:BB:FF:5D:40:C0:4B:99:5F:93:C8:3E:52\r\na=setup:active\r\na=mid:1\r\na=extmap:5 urn:ietf:params:rtp-hdrext:toffset\r\na=extmap:4 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:6 http://www.webrtc.org/experiments/rtp-hdrext/playout-delay\r\na=extmap:3 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=sendrecv\r\na=msid:CS4dtrwzwvWgn7LXczCk8dnTgHLGcf5Uy41y c023b035-4084-434e-8191-d7704f29912f\r\na=rtcp-mux\r\na=rtpmap:120 VP8/90000\r\na=rtcp-fb:120 goog-remb\r\na=rtcp-fb:120 ccm fir\r\na=rtcp-fb:120 nack\r\na=rtcp-fb:120 nack pli\r\na=rtpmap:121 VP9/90000\r\na=rtcp-fb:121 goog-remb\r\na=rtcp-fb:121 ccm fir\r\na=rtcp-fb:121 nack\r\na=rtcp-fb:121 nack pli\r\na=fmtp:121 profile-id=0\r\na=rtpmap:126 H264/90000\r\na=rtcp-fb:126 goog-remb\r\na=rtcp-fb:126 ccm fir\r\na=rtcp-fb:126 nack\r\na=rtcp-fb:126 nack pli\r\na=fmtp:126 level-asymmetry-allowed=1;packetization-mode=1;profile-level-id=42e01f\r\na=ssrc:1886646122 cname:iTyVAKh7viWDN3RR\r\n","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:16:45
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:505434299 1 udp 2122260223 192.168.1.6 46968 typ host generation 0 ufrag pXDe network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:2 1 UDP 1685987071 125.161.129.235 35240 typ srflx raddr 192.168.1.7 rport 50161","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"98652615","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:2 2 UDP 1685987070 125.161.129.235 9762 typ srflx raddr 192.168.1.7 rport 50163","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"98652615","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:2 1 UDP 1685987071 125.161.129.235 40074 typ srflx raddr 192.168.1.7 rport 63872","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"98652615","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:16:45
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:3078610798 1 udp 1686052607 125.161.129.235 18986 typ srflx raddr 192.168.1.6 rport 46968 generation 0 ufrag pXDe network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:2 2 UDP 1685987070 125.161.129.235 22167 typ srflx raddr 192.168.1.7 rport 63874","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"98652615","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-call","data":[{"receiver_id":"CindyAmelia","chat_room":""}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-call","data":[{"receiver_id":"CindyAmelia","chat_room":""}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-call","data":[{"receiver_id":"CindyAmelia","chat_room":""}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-offer","data":[{"type":"offer","sdp":"v=0\r\no=mozilla...THIS_IS_SDPARTA-73.0.1 8700590497371178706 0 IN IP4 0.0.0.0\r\ns=-\r\nt=0 0\r\na=sendrecv\r\na=fingerprint:sha-256 97:96:67:CC:20:DF:60:7B:31:B3:E7:23:0A:87:48:F1:93:A4:0C:28:9E:2D:EF:DE:72:3E:72:B0:A9:A6:4B:98\r\na=group:BUNDLE 0 1\r\na=ice-options:trickle\r\na=msid-semantic:WMS *\r\nm=audio 9 UDP/TLS/RTP/SAVPF 109 9 0 8 101\r\nc=IN IP4 0.0.0.0\r\na=sendrecv\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:2/recvonly urn:ietf:params:rtp-hdrext:csrc-audio-level\r\na=extmap:3 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=fmtp:109 maxplaybackrate=48000;stereo=1;useinbandfec=1\r\na=fmtp:101 0-15\r\na=ice-pwd:2d3f2a32cf861dfc23913be4da5a23c0\r\na=ice-ufrag:dc1456a2\r\na=mid:0\r\na=msid:{610dd4d6-b731-4b29-b0e4-158cd11ea3f8} {199d0e47-5a80-4fb5-a20d-d9785ab99e29}\r\na=rtcp-mux\r\na=rtpmap:109 opus/48000/2\r\na=rtpmap:9 G722/8000/1\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:101 telephone-event/8000\r\na=setup:actpass\r\na=ssrc:1403976485 cname:{b6d11a16-ddac-47fb-bd82-43958fd82f04}\r\nm=video 9 UDP/TLS/RTP/SAVPF 120 121 126 97\r\nc=IN IP4 0.0.0.0\r\na=sendrecv\r\na=extmap:3 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=extmap:4 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:5 urn:ietf:params:rtp-hdrext:toffset\r\na=extmap:6/recvonly http://www.webrtc.org/experiments/rtp-hdrext/playout-delay\r\na=fmtp:126 profile-level-id=42e01f;level-asymmetry-allowed=1;packetization-mode=1\r\na=fmtp:97 profile-level-id=42e01f;level-asymmetry-allowed=1\r\na=fmtp:120 max-fs=12288;max-fr=60\r\na=fmtp:121 max-fs=12288;max-fr=60\r\na=ice-pwd:2d3f2a32cf861dfc23913be4da5a23c0\r\na=ice-ufrag:dc1456a2\r\na=mid:1\r\na=msid:{610dd4d6-b731-4b29-b0e4-158cd11ea3f8} {13310552-7fa2-40c8-aed9-058808f04e4f}\r\na=rtcp-fb:120 nack\r\na=rtcp-fb:120 nack pli\r\na=rtcp-fb:120 ccm fir\r\na=rtcp-fb:120 goog-remb\r\na=rtcp-fb:121 nack\r\na=rtcp-fb:121 nack pli\r\na=rtcp-fb:121 ccm fir\r\na=rtcp-fb:121 goog-remb\r\na=rtcp-fb:126 nack\r\na=rtcp-fb:126 nack pli\r\na=rtcp-fb:126 ccm fir\r\na=rtcp-fb:126 goog-remb\r\na=rtcp-fb:97 nack\r\na=rtcp-fb:97 nack pli\r\na=rtcp-fb:97 ccm fir\r\na=rtcp-fb:97 goog-remb\r\na=rtcp-mux\r\na=rtpmap:120 VP8/90000\r\na=rtpmap:121 VP9/90000\r\na=rtpmap:126 H264/90000\r\na=rtpmap:97 H264/90000\r\na=setup:actpass\r\na=ssrc:2700447046 cname:{b6d11a16-ddac-47fb-bd82-43958fd82f04}\r\n","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:16:45
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:505434299 1 udp 2122260223 192.168.1.6 38023 typ host generation 0 ufrag mAkf network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:16:45
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:505434299 1 udp 2122260223 192.168.1.6 43706 typ host generation 0 ufrag mAkf network-id 1 network-cost 10","sdpMid":"1","sdpMLineIndex":1,"receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:0 1 UDP 2122187007 192.168.1.7 55836 typ host","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"dc1456a2","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:4 1 UDP 2122252543 172.18.68.97 55837 typ host","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"dc1456a2","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:9 1 TCP 2105524479 172.18.68.97 9 typ host tcptype active","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"dc1456a2","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:0 2 UDP 2122187006 192.168.1.7 55838 typ host","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"dc1456a2","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:8 2 TCP 2105458942 192.168.1.7 9 typ host tcptype active","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"dc1456a2","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:9 2 TCP 2105524478 172.18.68.97 9 typ host tcptype active","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"dc1456a2","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:0 1 UDP 2122187007 192.168.1.7 55840 typ host","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"dc1456a2","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:8 1 TCP 2105458943 192.168.1.7 9 typ host tcptype active","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"dc1456a2","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:0 2 UDP 2122187006 192.168.1.7 55842 typ host","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"dc1456a2","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:8 2 TCP 2105458942 192.168.1.7 9 typ host tcptype active","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"dc1456a2","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:16:45
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:3078610798 1 udp 1686052607 125.161.129.235 44461 typ srflx raddr 192.168.1.6 rport 38023 generation 0 ufrag mAkf network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:16:45
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:3078610798 1 udp 1686052607 125.161.129.235 24722 typ srflx raddr 192.168.1.6 rport 43706 generation 0 ufrag mAkf network-id 1 network-cost 10","sdpMid":"1","sdpMLineIndex":1,"receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:16:45
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:1352903755 1 tcp 1518280447 192.168.1.6 9 typ host tcptype active generation 0 ufrag mAkf network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:2 1 UDP 1685987071 125.161.129.235 6154 typ srflx raddr 192.168.1.7 rport 55836","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"dc1456a2","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:2 2 UDP 1685987070 125.161.129.235 2363 typ srflx raddr 192.168.1.7 rport 55838","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"dc1456a2","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:2 1 UDP 1685987071 125.161.129.235 22508 typ srflx raddr 192.168.1.7 rport 55840","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"dc1456a2","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:2 2 UDP 1685987070 125.161.129.235 64885 typ srflx raddr 192.168.1.7 rport 55842","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"dc1456a2","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"missed-call","data":[{"sender_id":"CindyAmelia","receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:16:45
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"on-call","data":[{"receiver_id":"CindyAmelia","chat_room":""}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:16:45
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"video-call","data":[{"receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:16:45
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"client-call","data":[{"receiver_id":"Kamshory","chat_room":""}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:16:45
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"client-call","data":[{"receiver_id":"Kamshory","chat_room":""}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-offer","data":[{"type":"offer","sdp":"v=0\r\no=mozilla...THIS_IS_SDPARTA-73.0.1 8538357415256886416 0 IN IP4 0.0.0.0\r\ns=-\r\nt=0 0\r\na=sendrecv\r\na=fingerprint:sha-256 F0:B5:63:FC:8F:FF:03:97:87:EA:25:AD:75:8A:0F:2C:C2:9B:F9:6C:93:16:3B:D3:69:BF:AA:36:07:9E:30:9D\r\na=group:BUNDLE 0 1\r\na=ice-options:trickle\r\na=msid-semantic:WMS *\r\nm=audio 9 UDP/TLS/RTP/SAVPF 109 9 0 8 101\r\nc=IN IP4 0.0.0.0\r\na=sendrecv\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:2/recvonly urn:ietf:params:rtp-hdrext:csrc-audio-level\r\na=extmap:3 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=fmtp:109 maxplaybackrate=48000;stereo=1;useinbandfec=1\r\na=fmtp:101 0-15\r\na=ice-pwd:e7eabf9aabaf318d47a8be0a1a5bc8ae\r\na=ice-ufrag:109c54b4\r\na=mid:0\r\na=msid:{610dd4d6-b731-4b29-b0e4-158cd11ea3f8} {6894b48e-8d40-4719-85c9-6c34748fdcf7}\r\na=rtcp-mux\r\na=rtpmap:109 opus/48000/2\r\na=rtpmap:9 G722/8000/1\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:101 telephone-event/8000\r\na=setup:actpass\r\na=ssrc:1965319689 cname:{7d7aaf12-a322-42bb-afdb-41717e7150e5}\r\nm=video 9 UDP/TLS/RTP/SAVPF 120 121 126 97\r\nc=IN IP4 0.0.0.0\r\na=sendrecv\r\na=extmap:3 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=extmap:4 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:5 urn:ietf:params:rtp-hdrext:toffset\r\na=extmap:6/recvonly http://www.webrtc.org/experiments/rtp-hdrext/playout-delay\r\na=fmtp:126 profile-level-id=42e01f;level-asymmetry-allowed=1;packetization-mode=1\r\na=fmtp:97 profile-level-id=42e01f;level-asymmetry-allowed=1\r\na=fmtp:120 max-fs=12288;max-fr=60\r\na=fmtp:121 max-fs=12288;max-fr=60\r\na=ice-pwd:e7eabf9aabaf318d47a8be0a1a5bc8ae\r\na=ice-ufrag:109c54b4\r\na=mid:1\r\na=msid:{610dd4d6-b731-4b29-b0e4-158cd11ea3f8} {5d0b6007-30a8-4aed-8ce4-e2f966fe5bae}\r\na=rtcp-fb:120 nack\r\na=rtcp-fb:120 nack pli\r\na=rtcp-fb:120 ccm fir\r\na=rtcp-fb:120 goog-remb\r\na=rtcp-fb:121 nack\r\na=rtcp-fb:121 nack pli\r\na=rtcp-fb:121 ccm fir\r\na=rtcp-fb:121 goog-remb\r\na=rtcp-fb:126 nack\r\na=rtcp-fb:126 nack pli\r\na=rtcp-fb:126 ccm fir\r\na=rtcp-fb:126 goog-remb\r\na=rtcp-fb:97 nack\r\na=rtcp-fb:97 nack pli\r\na=rtcp-fb:97 ccm fir\r\na=rtcp-fb:97 goog-remb\r\na=rtcp-mux\r\na=rtpmap:120 VP8/90000\r\na=rtpmap:121 VP9/90000\r\na=rtpmap:126 H264/90000\r\na=rtpmap:97 H264/90000\r\na=setup:actpass\r\na=ssrc:4067516830 cname:{7d7aaf12-a322-42bb-afdb-41717e7150e5}\r\n","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = 'šŒ›…AG×‚Pš‡‡ÃO_‘€×Û8×•ÃY_š‡‡ÃO_†…_ÏÃ@Å½!›^š›
+™€MSÛµ+4¦¾*.ª²'-´³7<ØÖPSÅÏR]ÍÔPEÆÔTIÄÔQHÃÙ[KÁĞU]ÅÁ*3Õ¨3IÕÑMMÛÑMM©“?†ÜN!‡½	ÈÑCM©“?”Ü›…–—?©@“ˆ“œG†‰PÇÔU]³ÑY?ÀÛUNÏ§ GÍ§Y;³ÛSNÏØTGÍÖY8´ÛQHÏ 'GÂÔYE´ÛS;ÏÓ G¶ÓYD·Û%DÏ× GÌÒYLÃÛP?Ï¥PGÃØY?³Û"<ÏÒUGÅÖYD°ÛPMÏØ'!‡½È†€‘Y? ¯'1°ÁS]Ä½!›€^–„N…•
+›’Y	‡ˆ ™„?©@˜’
+Ø’”–Û40¦ÁI!‡½È€œCDÕ´'-Úµ/.Ú³7-Ú²"+¥§CLÅØCDÕÑCEÕĞSL©“?–Ü*3Õ¨3IÕÑMMÛÑMM©“?”Ü›…–—?©@™”‘YLÕ”Ïˆ	“Û‡€Ï“Ø‰™G†’Ø€œN—©“?”ÜŒÏÓL‚›]€“Gœ„Ï‘”ŒG‡•P…•Y†“ P””šÌƒ„!‡½È„	˜€GÆÁ›Û
+‡Y”“†Û	…Ì‡„	Ï’†Û‘½!›€^˜•GÄÑZ]˜€™€”‚”•@ÁÙSMÅÚ	“ÈĞX†„
+—€“„ @Ä½!›€^˜•GÄÑR]ÅÌRH©“?”Ü
+Ì
+‘ÛJ€Ì€”‡PLÍ…WJ”ÙÅ€RÀƒ E”„?©@œ‚P€‡’ÛRMÌ‚VI—Õ?©@˜ˆGÅ½!›€^†ˆG×RM‘…WÃÌJÆĞNI—ÓZP—ÑIØĞVE–…RL€PÍœCÃÙZI—Õ[ØÙIÅÌWJÄØNEÀ‚ZPÃ‚PIÂÕ[‘‚Jˆ½!›€^‚P˜”!‡½È“˜€GÄÑZ]š‘ÚÕ[MÅÑLO©“?”Ü	…ŒÏØC:ÂÓQRÍÑSMÚĞ?©@‡•”‘YMÕ± 0 Î[MÅÑ?©@‡•”‘YEÕ± 0´Î[MÅÑ?©@‡•”‘YLÅĞC	Ø„›•LEÅÑS!‡½È’	€‘Y–•†’?©@†’ÏĞZKÀÒRDÃÙZ]–ÛJ‘Ö“ĞQP”ÒQOØÕQ—Ì‘ƒNIÄÖRJÖRHÅ„V ©“?˜Ü‘„]ÌÁ69¥Î71¦Î1)¥Î0<£±%]ÄÓS]ÄÓR]ÄÓU]ÌÖ?© @¼¯C4¥ÕCMÛÑMMÛÑ?©@†„‡„ ©“?”ÜŒÏÒC‡Y•G…€˜’Y‘N‘“Û’Yœ…?©@™”‘YIÕ‰	…ÛLR‚–S‚„‚M‡†L‘œŒ’L‘N‘“Î†Ì›…N	œŒ!‡½È„	˜€GÀÁ›Û
+‡Y”“†Û	…Ì‡„	Ï•“’	©“?”ÜŒÏ×L‚›]•ÏÎL
+‚–M
+ƒ	–Ï’Î…„˜„	†Î	…Ì‡„	Ú‘Œ	Ø…”˜?©@“ŒÏĞQKÕ‘“ˆØN‘ÜWOÑRÎN†˜•Ø€š–ÈĞX”‚ˆˆØŒÜR!‡½È‡	…ÛZJÕ‘“ˆØN‘ÜWOÑRÎN†˜•Ø€š–ÈĞ?©@“ŒÏĞQMÕŒØ‡@ÄÓQEÍÚÌÈ×S!‡½È‡	…ÛROÄÁÌÈĞQOÍÙX”™N‡ÜUM©“?”Ü
+Ì
+‘ÛJ€Ì€”‡PLÍ…WJ”ÙÅ€RÀƒ E”„?©@œ‚P€‡’ÛRMÌ‚VI—Õ?©@˜ˆGÄ½!›€^†ˆG×RM‘…WÃÌJÆĞNI—ÓZP—ÑIØĞVE–…RL€PÍœCÀ…SÃÑSJØÒSÍÌW…NE–„WPÓDÃ×Àƒˆ½!›€^‚P“ƒYLÇÑC”‚!‡½È“…ÌÏĞQMÕÁœ½!›€^‚P“ƒYLÇÑC–ŒCœ“?©@‡• Ø‡GÄÓS]’Ø“—½!›€^‚P“ƒYLÇĞC”‚!‡½È“…ÌÏĞQLÕÁœ½!›€^‚P“ƒYLÇĞC–ŒCœ“?©@‡• Ø‡GÄÓR]’Ø“—½!›€^‚P“ƒYLÇ×C”‚!‡½È“…ÌÏĞQKÕÁœ½!›€^‚P“ƒYLÇ×C–ŒCœ“?©@‡• Ø‡GÄÓU]’Ø“—½!›€^‚P“ƒYDÂÁ–Š?©@‡• Ø‡GÌÖC”‚]…
+!‡½È“…ÌÏØT]–‚]“ˆ!‡½È“…ÌÏØT]’Ø“—½!›€^‚P˜”!‡½È“˜€GÄÓS]£±[RÌÑSMÅ½!›€^‘…ÛROÄÁ5-ÌÎZMÅÑS!‡½È“˜€GÄÓU]½ÓUIÚØSMÅÑ?©@‡•”‘YDÂÁ+OÃÕLDÅÑSM©“?”Ü”G”‚”’!‡½È’–ÛWMÃÖVLÃÙPMÕ‚˜„YÂ…T”‡ROØ€POÇÌWO—ƒN“…PÁĞTLÂ„TLÀÑHˆ½!›ÃO_‡„ œ—ªˆ_ÏÃ ›…<˜„”Ã ˆ'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:0 1 UDP 2122187007 192.168.1.7 51636 typ host","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"109c54b4","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:4 1 UDP 2122252543 172.18.68.97 51637 typ host","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"109c54b4","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:8 1 TCP 2105458943 192.168.1.7 9 typ host tcptype active","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"109c54b4","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:9 1 TCP 2105524479 172.18.68.97 9 typ host tcptype active","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"109c54b4","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:0 2 UDP 2122187006 192.168.1.7 51638 typ host","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"109c54b4","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:4 2 UDP 2122252542 172.18.68.97 51639 typ host","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"109c54b4","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:8 2 TCP 2105458942 192.168.1.7 9 typ host tcptype active","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"109c54b4","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:9 2 TCP 2105524478 172.18.68.97 9 typ host tcptype active","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"109c54b4","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:0 1 UDP 2122187007 192.168.1.7 51640 typ host","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"109c54b4","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:4 1 UDP 2122252543 172.18.68.97 51641 typ host","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"109c54b4","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:8 1 TCP 2105458943 192.168.1.7 9 typ host tcptype active","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"109c54b4","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:4 2 UDP 2122252542 172.18.68.97 51643 typ host","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"109c54b4","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:8 2 TCP 2105458942 192.168.1.7 9 typ host tcptype active","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"109c54b4","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:9 2 TCP 2105524478 172.18.68.97 9 typ host tcptype active","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"109c54b4","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:2 1 UDP 1685987071 125.161.129.235 3496 typ srflx raddr 192.168.1.7 rport 51636","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"109c54b4","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:2 2 UDP 1685987070 125.161.129.235 48151 typ srflx raddr 192.168.1.7 rport 51638","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"109c54b4","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:2 1 UDP 1685987071 125.161.129.235 57436 typ srflx raddr 192.168.1.7 rport 51640","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"109c54b4","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:15:03
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:2 2 UDP 1685987070 125.161.129.235 17378 typ srflx raddr 192.168.1.7 rport 51642","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"109c54b4","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:09
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"Kamshory","receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:13
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"DindaAyu","receiver_id":"DindaAyu"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:09
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"video-call","data":[{"receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:09
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"client-call","data":[{"receiver_id":"Kamshory","chat_room":""}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:26
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"Kamshory","receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"DindaAyu","receiver_id":"DindaAyu"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:26
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"video-call","data":[{"receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:26
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"client-call","data":[{"receiver_id":"Kamshory","chat_room":""}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-offer","data":[{"type":"offer","sdp":"v=0\r\no=mozilla...THIS_IS_SDPARTA-73.0.1 4122293143637808904 0 IN IP4 0.0.0.0\r\ns=-\r\nt=0 0\r\na=sendrecv\r\na=fingerprint:sha-256 01:53:6E:EF:C7:07:58:6D:EE:71:CD:F6:C1:85:E8:53:85:9D:2C:66:7E:8B:57:48:97:A0:27:DC:99:3A:26:7D\r\na=group:BUNDLE 0 1\r\na=ice-options:trickle\r\na=msid-semantic:WMS *\r\nm=audio 9 UDP/TLS/RTP/SAVPF 109 9 0 8 101\r\nc=IN IP4 0.0.0.0\r\na=sendrecv\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:2/recvonly urn:ietf:params:rtp-hdrext:csrc-audio-level\r\na=extmap:3 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=fmtp:109 maxplaybackrate=48000;stereo=1;useinbandfec=1\r\na=fmtp:101 0-15\r\na=ice-pwd:37b0edb96d67da05649d449a22412434\r\na=ice-ufrag:c50d3ee3\r\na=mid:0\r\na=msid:{19079989-84fe-493f-888c-d8d88eee6893} {f59645ea-4106-4e8a-9b1e-2d7abffa5ac5}\r\na=rtcp-mux\r\na=rtpmap:109 opus/48000/2\r\na=rtpmap:9 G722/8000/1\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:101 telephone-event/8000\r\na=setup:actpass\r\na=ssrc:4055744598 cname:{01010dd3-c755-47a1-853b-1dd7be03cc3c}\r\nm=video 9 UDP/TLS/RTP/SAVPF 120 121 126 97\r\nc=IN IP4 0.0.0.0\r\na=sendrecv\r\na=extmap:3 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=extmap:4 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:5 urn:ietf:params:rtp-hdrext:toffset\r\na=extmap:6/recvonly http://www.webrtc.org/experiments/rtp-hdrext/playout-delay\r\na=fmtp:126 profile-level-id=42e01f;level-asymmetry-allowed=1;packetization-mode=1\r\na=fmtp:97 profile-level-id=42e01f;level-asymmetry-allowed=1\r\na=fmtp:120 max-fs=12288;max-fr=60\r\na=fmtp:121 max-fs=12288;max-fr=60\r\na=ice-pwd:37b0edb96d67da05649d449a22412434\r\na=ice-ufrag:c50d3ee3\r\na=mid:1\r\na=msid:{19079989-84fe-493f-888c-d8d88eee6893} {6e71e42a-5ddf-432a-9607-4c6b9a9a9233}\r\na=rtcp-fb:120 nack\r\na=rtcp-fb:120 nack pli\r\na=rtcp-fb:120 ccm fir\r\na=rtcp-fb:120 goog-remb\r\na=rtcp-fb:121 nack\r\na=rtcp-fb:121 nack pli\r\na=rtcp-fb:121 ccm fir\r\na=rtcp-fb:121 goog-remb\r\na=rtcp-fb:126 nack\r\na=rtcp-fb:126 nack pli\r\na=rtcp-fb:126 ccm fir\r\na=rtcp-fb:126 goog-remb\r\na=rtcp-fb:97 nack\r\na=rtcp-fb:97 nack pli\r\na=rtcp-fb:97 ccm fir\r\na=rtcp-fb:97 goog-remb\r\na=rtcp-mux\r\na=rtpmap:120 VP8/90000\r\na=rtpmap:121 VP9/90000\r\na=rtpmap:126 H264/90000\r\na=rtpmap:97 H264/90000\r\na=setup:actpass\r\na=ssrc:1037983524 cname:{01010dd3-c755-47a1-853b-1dd7be03cc3c}\r\n","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:0 1 UDP 2122187007 192.168.1.7 53696 typ host","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"c50d3ee3","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:4 1 UDP 2122252543 172.18.68.97 53697 typ host","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"c50d3ee3","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:8 1 TCP 2105458943 192.168.1.7 9 typ host tcptype active","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"c50d3ee3","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:9 1 TCP 2105524479 172.18.68.97 9 typ host tcptype active","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"c50d3ee3","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:0 2 UDP 2122187006 192.168.1.7 53698 typ host","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"c50d3ee3","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:4 2 UDP 2122252542 172.18.68.97 53699 typ host","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"c50d3ee3","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:8 2 TCP 2105458942 192.168.1.7 9 typ host tcptype active","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"c50d3ee3","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:9 2 TCP 2105524478 172.18.68.97 9 typ host tcptype active","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"c50d3ee3","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:0 1 UDP 2122187007 192.168.1.7 63957 typ host","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"c50d3ee3","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:4 1 UDP 2122252543 172.18.68.97 63958 typ host","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"c50d3ee3","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:8 1 TCP 2105458943 192.168.1.7 9 typ host tcptype active","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"c50d3ee3","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:9 1 TCP 2105524479 172.18.68.97 9 typ host tcptype active","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"c50d3ee3","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:0 2 UDP 2122187006 192.168.1.7 63959 typ host","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"c50d3ee3","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:4 2 UDP 2122252542 172.18.68.97 63960 typ host","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"c50d3ee3","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:8 2 TCP 2105458942 192.168.1.7 9 typ host tcptype active","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"c50d3ee3","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:9 2 TCP 2105524478 172.18.68.97 9 typ host tcptype active","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"c50d3ee3","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:26
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"client-answer","data":[{"type":"answer","sdp":"v=0\r\no=- 8609635398616315773 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE 0 1\r\na=msid-semantic: WMS eyWWp5szjvaixuaE7AUnzUiVCauuf2mt4aYV\r\nm=audio 9 UDP/TLS/RTP/SAVPF 109 9 0 8 101\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:mBQd\r\na=ice-pwd:eTzYTqcfulpzFkTYF0iBltP3\r\na=ice-options:trickle\r\na=fingerprint:sha-256 7D:FE:BC:FC:D3:5E:46:CE:E8:52:EB:B7:CD:30:00:76:86:0A:48:81:2F:09:C9:23:61:8C:C0:90:09:68:DF:7B\r\na=setup:active\r\na=mid:0\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:3 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=sendrecv\r\na=msid:eyWWp5szjvaixuaE7AUnzUiVCauuf2mt4aYV ecf840e1-e167-475c-ac9f-7885b20571f3\r\na=rtcp-mux\r\na=rtpmap:109 opus/48000/2\r\na=fmtp:109 minptime=10;useinbandfec=1\r\na=rtpmap:9 G722/8000\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:101 telephone-event/8000\r\na=ssrc:206020399 cname:EwEy/JopL/dFDmGX\r\nm=video 9 UDP/TLS/RTP/SAVPF 120 121 126\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:mBQd\r\na=ice-pwd:eTzYTqcfulpzFkTYF0iBltP3\r\na=ice-options:trickle\r\na=fingerprint:sha-256 7D:FE:BC:FC:D3:5E:46:CE:E8:52:EB:B7:CD:30:00:76:86:0A:48:81:2F:09:C9:23:61:8C:C0:90:09:68:DF:7B\r\na=setup:active\r\na=mid:1\r\na=extmap:5 urn:ietf:params:rtp-hdrext:toffset\r\na=extmap:4 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:6 http://www.webrtc.org/experiments/rtp-hdrext/playout-delay\r\na=extmap:3 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=sendrecv\r\na=msid:eyWWp5szjvaixuaE7AUnzUiVCauuf2mt4aYV d79a0a31-2f1f-47de-be2e-ec3a3027bd07\r\na=rtcp-mux\r\na=rtpmap:120 VP8/90000\r\na=rtcp-fb:120 goog-remb\r\na=rtcp-fb:120 ccm fir\r\na=rtcp-fb:120 nack\r\na=rtcp-fb:120 nack pli\r\na=rtpmap:121 VP9/90000\r\na=rtcp-fb:121 goog-remb\r\na=rtcp-fb:121 ccm fir\r\na=rtcp-fb:121 nack\r\na=rtcp-fb:121 nack pli\r\na=fmtp:121 profile-id=0\r\na=rtpmap:126 H264/90000\r\na=rtcp-fb:126 goog-remb\r\na=rtcp-fb:126 ccm fir\r\na=rtcp-fb:126 nack\r\na=rtcp-fb:126 nack pli\r\na=fmtp:126 level-asymmetry-allowed=1;packetization-mode=1;profile-level-id=42e01f\r\na=ssrc:1694768507 cname:EwEy/JopL/dFDmGX\r\n","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:2 1 UDP 1685987071 125.161.129.235 45049 typ srflx raddr 192.168.1.7 rport 53696","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"c50d3ee3","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:2 2 UDP 1685987070 125.161.129.235 63498 typ srflx raddr 192.168.1.7 rport 53698","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"c50d3ee3","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-call","data":[{"receiver_id":"CindyAmelia","chat_room":""}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:26
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:3078610798 1 udp 1686052607 125.161.129.235 51008 typ srflx raddr 192.168.1.6 rport 44246 generation 0 ufrag mBQd network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:0 1 UDP 2122187007 192.168.1.7 57527 typ host","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"feebdfdb","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:4 1 UDP 2122252543 172.18.68.97 57528 typ host","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"feebdfdb","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:8 1 TCP 2105458943 192.168.1.7 9 typ host tcptype active","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"feebdfdb","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:9 1 TCP 2105524479 172.18.68.97 9 typ host tcptype active","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"feebdfdb","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:0 2 UDP 2122187006 192.168.1.7 57529 typ host","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"feebdfdb","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:4 2 UDP 2122252542 172.18.68.97 57530 typ host","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"feebdfdb","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:8 2 TCP 2105458942 192.168.1.7 9 typ host tcptype active","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"feebdfdb","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:9 2 TCP 2105524478 172.18.68.97 9 typ host tcptype active","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"feebdfdb","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:0 1 UDP 2122187007 192.168.1.7 57531 typ host","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"feebdfdb","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:4 1 UDP 2122252543 172.18.68.97 57532 typ host","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"feebdfdb","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:8 1 TCP 2105458943 192.168.1.7 9 typ host tcptype active","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"feebdfdb","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:9 1 TCP 2105524479 172.18.68.97 9 typ host tcptype active","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"feebdfdb","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:0 2 UDP 2122187006 192.168.1.7 57533 typ host","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"feebdfdb","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:4 2 UDP 2122252542 172.18.68.97 57534 typ host","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"feebdfdb","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:8 2 TCP 2105458942 192.168.1.7 9 typ host tcptype active","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"feebdfdb","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:9 2 TCP 2105524478 172.18.68.97 9 typ host tcptype active","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"feebdfdb","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:26
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"client-offer","data":[{"type":"offer","sdp":"v=0\r\no=- 4079877282685612870 2 IN IP4 127.0.0.1\r\ns=-\r\nt=0 0\r\na=group:BUNDLE 0 1\r\na=msid-semantic: WMS eyWWp5szjvaixuaE7AUnzUiVCauuf2mt4aYV\r\nm=audio 9 UDP/TLS/RTP/SAVPF 111 103 9 0 8 105 13 110 113 126\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:3VVT\r\na=ice-pwd:he4p7EwTmshvM7gen0tY70kR\r\na=ice-options:trickle\r\na=fingerprint:sha-256 C8:6A:F7:58:7B:44:9B:CD:87:2F:06:77:0B:FE:71:DE:7A:45:DE:C4:15:D0:1E:D4:A7:E9:AA:9A:B4:BD:36:9A\r\na=setup:actpass\r\na=mid:0\r\na=extmap:1 urn:ietf:params:rtp-hdrext:ssrc-audio-level\r\na=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01\r\na=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=extmap:5 urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id\r\na=extmap:6 urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id\r\na=sendrecv\r\na=msid:eyWWp5szjvaixuaE7AUnzUiVCauuf2mt4aYV ecf840e1-e167-475c-ac9f-7885b20571f3\r\na=rtcp-mux\r\na=rtpmap:111 opus/48000/2\r\na=rtcp-fb:111 transport-cc\r\na=fmtp:111 minptime=10;useinbandfec=1\r\na=rtpmap:103 ISAC/16000\r\na=rtpmap:9 G722/8000\r\na=rtpmap:0 PCMU/8000\r\na=rtpmap:8 PCMA/8000\r\na=rtpmap:105 CN/16000\r\na=rtpmap:13 CN/8000\r\na=rtpmap:110 telephone-event/48000\r\na=rtpmap:113 telephone-event/16000\r\na=rtpmap:126 telephone-event/8000\r\na=ssrc:1817747338 cname:CN+Pm0sf4KbgURu7\r\na=ssrc:1817747338 msid:eyWWp5szjvaixuaE7AUnzUiVCauuf2mt4aYV ecf840e1-e167-475c-ac9f-7885b20571f3\r\na=ssrc:1817747338 mslabel:eyWWp5szjvaixuaE7AUnzUiVCauuf2mt4aYV\r\na=ssrc:1817747338 label:ecf840e1-e167-475c-ac9f-7885b20571f3\r\nm=video 9 UDP/TLS/RTP/SAVPF 96 97 98 99 100 101 102 127 104\r\nc=IN IP4 0.0.0.0\r\na=rtcp:9 IN IP4 0.0.0.0\r\na=ice-ufrag:3VVT\r\na=ice-pwd:he4p7EwTmshvM7gen0tY70kR\r\na=ice-options:trickle\r\na=fingerprint:sha-256 C8:6A:F7:58:7B:44:9B:CD:87:2F:06:77:0B:FE:71:DE:7A:45:DE:C4:15:D0:1E:D4:A7:E9:AA:9A:B4:BD:36:9A\r\na=setup:actpass\r\na=mid:1\r\na=extmap:14 urn:ietf:params:rtp-hdrext:toffset\r\na=extmap:2 http://www.webrtc.org/experiments/rtp-hdrext/abs-send-time\r\na=extmap:13 urn:3gpp:video-orientation\r\na=extmap:3 http://www.ietf.org/id/draft-holmer-rmcat-transport-wide-cc-extensions-01\r\na=extmap:12 http://www.webrtc.org/experiments/rtp-hdrext/playout-delay\r\na=extmap:11 http://www.webrtc.org/experiments/rtp-hdrext/video-content-type\r\na=extmap:7 http://www.webrtc.org/experiments/rtp-hdrext/video-timing\r\na=extmap:8 http://tools.ietf.org/html/draft-ietf-avtext-framemarking-07\r\na=extmap:9 http://www.webrtc.org/experiments/rtp-hdrext/color-space\r\na=extmap:4 urn:ietf:params:rtp-hdrext:sdes:mid\r\na=extmap:5 urn:ietf:params:rtp-hdrext:sdes:rtp-stream-id\r\na=extmap:6 urn:ietf:params:rtp-hdrext:sdes:repaired-rtp-stream-id\r\na=sendrecv\r\na=msid:eyWWp5szjvaixuaE7AUnzUiVCauuf2mt4aYV d79a0a31-2f1f-47de-be2e-ec3a3027bd07\r\na=rtcp-mux\r\na=rtcp-rsize\r\na=rtpmap:96 VP8/90000\r\na=rtcp-fb:96 goog-remb\r\na=rtcp-fb:96 transport-cc\r\na=rtcp-fb:96 ccm fir\r\na=rtcp-fb:96 nack\r\na=rtcp-fb:96 nack pli\r\na=rtpmap:97 rtx/90000\r\na=fmtp:97 apt=96\r\na=rtpmap:98 VP9/90000\r\na=rtcp-fb:98 goog-remb\r\na=rtcp-fb:98 transport-cc\r\na=rtcp-fb:98 ccm fir\r\na=rtcp-fb:98 nack\r\na=rtcp-fb:98 nack pli\r\na=fmtp:98 profile-id=0\r\na=rtpmap:99 rtx/90000\r\na=fmtp:99 apt=98\r\na=rtpmap:100 H264/90000\r\na=rtcp-fb:100 goog-remb\r\na=rtcp-fb:100 transport-cc\r\na=rtcp-fb:100 ccm fir\r\na=rtcp-fb:100 nack\r\na=rtcp-fb:100 nack pli\r\na=fmtp:100 level-asymmetry-allowed=1;packetization-mode=1;profile-level-id=42e01f\r\na=rtpmap:101 rtx/90000\r\na=fmtp:101 apt=100\r\na=rtpmap:102 red/90000\r\na=rtpmap:127 rtx/90000\r\na=fmtp:127 apt=102\r\na=rtpmap:104 ulpfec/90000\r\na=ssrc-group:FID 2253745716 642128667\r\na=ssrc:2253745716 cname:CN+Pm0sf4KbgURu7\r\na=ssrc:2253745716 msid:eyWWp5szjvaixuaE7AUnzUiVCauuf2mt4aYV d79a0a31-2f1f-47de-be2e-ec3a3027bd07\r\na=ssrc:2253745716 mslabel:eyWWp5szjvaixuaE7AUnzUiVCauuf2mt4aYV\r\na=ssrc:2253745716 label:d79a0a31-2f1f-47de-be2e-ec3a3027bd07\r\na=ssrc:642128667 cname:CN+Pm0sf4KbgURu7\r\na=ssrc:642128667 msid:eyWWp5szjvaixuaE7AUnzUiVCauuf2mt4aYV d79a0a31-2f1f-47de-be2e-ec3a3027bd07\r\na=ssrc:642128667 mslabel:eyWWp5szjvaixuaE7AUnzUiVCauuf2mt4aYV\r\na=ssrc:642128667 label:d79a0a31-2f1f-47de-be2e-ec3a3027bd07\r\n","receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:26
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:3078610798 1 udp 1686052607 125.161.129.235 16885 typ srflx raddr 192.168.1.6 rport 47177 generation 0 ufrag 3VVT network-id 1 network-cost 10","sdpMid":"1","sdpMLineIndex":1,"receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:26
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:1352903755 1 tcp 1518280447 192.168.1.6 9 typ host tcptype active generation 0 ufrag 3VVT network-id 1 network-cost 10","sdpMid":"0","sdpMLineIndex":0,"receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:2 1 UDP 1685987071 125.161.129.235 19682 typ srflx raddr 192.168.1.7 rport 63957","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"c50d3ee3","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:2 1 UDP 1685987071 125.161.129.235 2785 typ srflx raddr 192.168.1.7 rport 57527","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"feebdfdb","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:2 2 UDP 1685987070 125.161.129.235 26285 typ srflx raddr 192.168.1.7 rport 63959","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"c50d3ee3","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '	OY'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:0 1 UDP 2122187007 192.168.1.7 57535 typ host","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"516dc27b","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:4 1 UDP 2122252543 172.18.68.97 57536 typ host","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"516dc27b","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:8 1 TCP 2105458943 192.168.1.7 9 typ host tcptype active","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"516dc27b","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:9 1 TCP 2105524479 172.18.68.97 9 typ host tcptype active","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"516dc27b","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:2 1 UDP 1685987071 125.161.129.235 13757 typ srflx raddr 192.168.1.7 rport 57535","sdpMid":"0","sdpMLineIndex":0,"usernameFragment":"516dc27b","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:2 1 UDP 1685987071 125.161.129.235 31846 typ srflx raddr 192.168.1.7 rport 57531","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"feebdfdb","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:28
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-candidate","data":[{"candidate":"candidate:2 2 UDP 1685987070 125.161.129.235 33208 typ srflx raddr 192.168.1.7 rport 57533","sdpMid":"1","sdpMLineIndex":1,"usernameFragment":"feebdfdb","receiver_id":"CindyAmelia"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:57
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"DindaAyu","receiver_id":"DindaAyu"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:19:00
+    [username] => CindyAmelia
+    [full_name] => CindyAmelia
+    [avatar] => avatar/W.png
+    [sex] => W
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"Kamshory","receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:57
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"video-call","data":[{"receiver_id":"DindaAyu"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:18:57
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"client-call","data":[{"receiver_id":"DindaAyu","chat_room":""}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:19:22
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"DindaAyu","receiver_id":"DindaAyu"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:19:32
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"DindaAyu","receiver_id":"DindaAyu"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:19:32
+    [username] => Roy
+    [full_name] => RaraRumania
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"Kamshory","receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:19:32
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"send-message","data":[{"partner_id":"DindaAyu","receiver_id":"DindaAyu","message":{"text":"test","attachment":[]}}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:19:57
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"DindaAyu","receiver_id":"DindaAyu"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:19:57
+    [username] => Roy
+    [full_name] => RaraRumania
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"Kamshory","receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:20:04
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"DindaAyu","receiver_id":"DindaAyu"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-08 11:20:05
+    [username] => Roy
+    [full_name] => RaraRumania
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"Kamshory","receiver_id":"Kamshory"}]}'
+
+
