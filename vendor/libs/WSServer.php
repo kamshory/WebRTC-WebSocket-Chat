@@ -116,8 +116,6 @@ class WSServer implements WSInterface{
 						}
 					}
 					$buf2 = @socket_read($changeSocket, $this->dataChunk, PHP_NORMAL_READ);
-					echo "buf2\r\n";
-					var_dump($buf2);
 					if ($buf2 === false) 
 					{ 
 						// check disconnected client
