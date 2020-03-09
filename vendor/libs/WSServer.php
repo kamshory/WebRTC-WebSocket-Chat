@@ -18,6 +18,7 @@ class WSServer implements WSInterface{
 		$this->port = $port;
 
 		$this->masterSocket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+		//stream_set_blocking($this->masterSocket, 0);
 		// reuseable port
 		socket_set_option($this->masterSocket, SOL_SOCKET, SO_REUSEADDR, 1);
 		// bind socket to specified host
@@ -46,6 +47,7 @@ class WSServer implements WSInterface{
 			if (in_array($this->masterSocket, $changed)) 
 			{
 				$clientSocket = socket_accept($this->masterSocket); //accpet new socket
+				//stream_set_blocking($clientSocket, 0);
 				$header = socket_read($clientSocket, $this->maxHeaderSize); //read data sent by the socket
 				$header = trim($header, " \r\n ");
 				if(strlen($header) > 2)
@@ -91,6 +93,26 @@ class WSServer implements WSInterface{
 						}
 					}
 					while($recv > 0);
+					/*
+					do
+					{
+						$buf1 = socket_read($changeSocket, $this->dataChunk,  PHP_NORMAL_READ);
+						print_r($buf1);
+						if($buf1 !== false)
+						{
+							$buffer .= $buf1;
+							$nread++;
+						}
+						else
+						{
+						}
+					}
+					while($buf1 !== false);
+					*/
+					
+									
+						
+						
 					if($nread > 0)
 					{
 						if(strlen($buffer) > 0)
@@ -164,7 +186,8 @@ class WSServer implements WSInterface{
 			}
 		   
 			// loop through all the clients that have data to read from
-			foreach ($read as $read_sock) {
+			foreach ($read as $read_sock) 
+			{
 				// read until newline or 1024 bytes
 				// socket_read while show errors when the client is disconnected, so silence the error messages
 				$data = @socket_read($read_sock, 1024, PHP_NORMAL_READ);
@@ -173,7 +196,6 @@ class WSServer implements WSInterface{
 				if ($data === false) 
 				{
 					// remove client for $this->clientSockets array
-					
 					
 					$key = array_search($read_sock, $this->clientSockets);
 					unset($this->clientSockets[$key]);

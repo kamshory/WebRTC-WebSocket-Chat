@@ -47,7 +47,6 @@ class WSClient{
 		$this->query = $headerInfo['query'];
 		$this->httpVersion = $headerInfo['version'];
 		
-		print_r($this->headers);
 		if(isset($this->headers['x-forwarded-host']))
 		{
 			$host = $this->headers['x-forwarded-host'];
