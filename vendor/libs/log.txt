@@ -1,5 +1,6 @@
 Client = Array
 (
+<<<<<<< Updated upstream
     [login_time] => 2020-03-08 11:16:45
     [username] => CindyAmelia
     [full_name] => CindyAmelia
@@ -1909,3 +1910,81 @@ Client = Array
  Message = '{"command":"load-message","data":[{"partner_id":"Kamshory","receiver_id":"Kamshory"}]}'
 
 
+=======
+    [login_time] => 2020-03-02 18:41:44
+    [username] => kamshory
+    [full_name] => Kamshory ST MT
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = 'é'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-02 18:43:59
+    [username] => kamshory
+    [full_name] => Kamshory ST MT
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"Malik","receiver_id":"Malik"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-02 18:41:47
+    [username] => Malik
+    [full_name] => Abdul Malik
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = 'é'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-02 18:44:03
+    [username] => Malik
+    [full_name] => Abdul Malik
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"kamshory","receiver_id":"kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-02 18:44:03
+    [username] => Malik
+    [full_name] => Abdul Malik
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = 'é'
+
+
+Client = Array
+(
+    [login_time] => 2020-03-02 18:43:59
+    [username] => kamshory
+    [full_name] => Kamshory ST MT
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = 'é'
+
+
+>>>>>>> Stashed changes
