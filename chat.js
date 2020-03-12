@@ -25,14 +25,8 @@ var remoteVideo = null;
 var configuration = {
     'iceServers': [
 		{
-            'urls': 'stun:stun.stunprotocol.org:3478'
-        },
-        {
-            'urls': 'stun:stun.l.google.com:19302'
-        },
-		{
-			'urls': 'stun:stun.services.mozilla.com'
-		}
+            'urls': 'stun:stun.1.google.com:19302'
+        }
     ]
 };
 function PlanetMessage()
@@ -169,7 +163,7 @@ function planetChat(container, pMessage, websocketURL)
 				_this.connect();
 			}
 			this.conn.onmessage = function(e){
-				console.log('onmessage', e.data);
+				console.log('receive', e.data);
 				_this.connected = true;
 				_this.onMessage(e);
 			}
@@ -769,12 +763,12 @@ var callSuccess = 0;
 var receiveCallInterval = null;
 var receiveCallIntervalDelay = 100;
 
-function offering(sender_id, receiver_id, command, data)
+function offering(sender_id, receiver_id, command, desc)
 {
 	console.log('offering');
-	delete data.sender_id;
-	delete data.receiver_id;
-	delete data.partner_id;
+	delete desc.sender_id;
+	delete desc.receiver_id;
+	delete desc.partner_id;
 	onICECandidate(localStream, sender_id, receiver_id);
 	pc.createOffer({
 		offerToReceiveAudio: 1,
@@ -796,7 +790,9 @@ function offering(sender_id, receiver_id, command, data)
 					'data': [data2]
 				});
 				pChat.send(message);
-				console.log('send ', message);
+				setTimeout(function(){
+					pChat.send(message);
+				}, 50);
 			}
 		).catch(function(e) {
 			console.log("Problem with publishing client offer" + e);
@@ -841,6 +837,8 @@ function processWebRTCInfo(sender_id, receiver_id, command, data)
 			delete data.sender_name;
 			delete data.timestamp;
 			delete data.unique_id;
+			delete data.partner_id;
+			delete data.receiver_id;
             pc.setRemoteDescription(new RTCSessionDescription(data), 
 				function() {
 				
@@ -853,6 +851,16 @@ function processWebRTCInfo(sender_id, receiver_id, command, data)
             break;
         case 'client-offer':
            	onICECandidate(localStream, sender_id, receiver_id);
+			delete data.sender_id;
+			delete data.sender_name;
+			delete data.timestamp;
+			delete data.unique_id;
+			delete data.date_time;
+			delete data.partner_id;
+			delete data.receiver_id;
+			delete data.receiver_name;
+			delete data.read;
+			console.log('receive client-offer', data);
             pc.setRemoteDescription(new RTCSessionDescription(data), function() 
 			{
                 if (answer == 0) 
@@ -868,6 +876,9 @@ function processWebRTCInfo(sender_id, receiver_id, command, data)
 								'data': [data2]
 							});
 							pChat.send(message);
+							setTimeout(function(){
+								pChat.send(message);
+							}, 50);
 
                        }, 
 						function(e) 
@@ -893,6 +904,15 @@ function processWebRTCInfo(sender_id, receiver_id, command, data)
                 console.error('Before processing the client-answer, I need a client-offer');
                 break;
             }
+			delete data.sender_id;
+			delete data.sender_name;
+			delete data.timestamp;
+			delete data.unique_id;
+			delete data.date_time;
+			delete data.partner_id;
+			delete data.receiver_id;
+			delete data.receiver_name;
+			delete data.read;
 			pc.addIceCandidate(new RTCIceCandidate(data),
 				function() {
 				

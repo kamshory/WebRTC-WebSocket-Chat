@@ -47,7 +47,6 @@ class WSClient{
 		$this->query = $headerInfo['query'];
 		$this->httpVersion = $headerInfo['version'];
 		
-		print_r($this->headers);
 		if(isset($this->headers['x-forwarded-host']))
 		{
 			$host = $this->headers['x-forwarded-host'];
@@ -126,7 +125,7 @@ class WSClient{
 				. "X-Engine: PlanetChat\r\n\r\n";
 //				echo $recevedHeader."\r\n\r\n";
 //				echo $upgrade;
-			fwrite($this->socket, $upgrade, strlen($upgrade));
+			socket_write($this->socket, $upgrade, strlen($upgrade));
 		}
 	}
 	
