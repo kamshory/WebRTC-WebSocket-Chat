@@ -1988,3 +1988,16 @@ Client = Array
 
 
 >>>>>>> Stashed changes
+Client = Array
+(
+    [login_time] => 2020-03-12 17:04:33
+    [username] => Kamshory
+    [full_name] => Kamshory Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"Annabell","receiver_id":"Annabell"}]}'
+
+
