@@ -1,19 +1,18 @@
 <?php
 
 class ChatServer extends WSServer implements WSInterface {
-	public $userOnSystem = array();
 	public function __construct($host = '127.0.0.1', $port = 8888)
 	{
 		parent::__construct($host, $port);
 	}
 	public function updateUserOnSystem()
 	{
-		$this->userOnSystem = array();
+		$this->resetUserOnSystem();
 		foreach($this->chatClients as $client)
 		{
 			if(isset($client->getClientData()['username']))
 			{
-				$this->userOnSystem[$client->getClientData()['username']] = $client->getClientData();
+				$this->setUserOnSystem($client->getClientData()['username'], $client->getClientData());
 			}
 		}
 	}
@@ -69,10 +68,10 @@ class ChatServer extends WSServer implements WSInterface {
 		// You can define it yourself
 		$clientData = array(
 			'login_time'=>date('Y-m-d H:i:s'), 
-			'username'=>$clientChat->getSessions()['planet_username'], 
-			'full_name'=>$clientChat->getSessions()['planet_full_name'],
-			'avatar'=>$clientChat->getSessions()['planet_avatar'],
-			'sex'=>$clientChat->getSessions()['planet_sex']
+			'username'=>@$clientChat->getSessions()['planet_username'], 
+			'full_name'=>@$clientChat->getSessions()['planet_full_name'],
+			'avatar'=>@$clientChat->getSessions()['planet_avatar'],
+			'sex'=>@$clientChat->getSessions()['planet_sex']
 		);
 		return $clientData;
 	}
@@ -110,8 +109,6 @@ class ChatServer extends WSServer implements WSInterface {
 				)
 			);
 			$this->sendBroadcast($clientChat, $response);
-
-
 		}
 	}
 	/**
@@ -333,7 +330,6 @@ class ChatServer extends WSServer implements WSInterface {
 	public function deleteMessageForAll($clientChat, $json_message)
 	{
 		$my_id = @$clientChat->getClientData()['username'];
-		$message_id_read = array();
 		if($my_id)
 		{
 			if(isset($json_message['data']))
@@ -406,7 +402,6 @@ class ChatServer extends WSServer implements WSInterface {
 	public function markMessage($clientChat, $json_message)
 	{
 		$my_id = @$clientChat->getClientData()['username'];
-		$message_id_read = array();
 		if($my_id)
 		{
 			if(isset($json_message['data']))
@@ -479,7 +474,6 @@ class ChatServer extends WSServer implements WSInterface {
 	public function deleteMessage($clientChat, $json_message)
 	{
 		$my_id = @$clientChat->getClientData()['username'];
-		$message_id_read = array();
 		if($my_id)
 		{
 			if(isset($json_message['data']))

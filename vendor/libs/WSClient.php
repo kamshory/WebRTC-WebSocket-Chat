@@ -117,7 +117,7 @@ class WSClient{
 		{
 			$arrHost = explode(":", $host);
 			$host = $arrHost[0];
-			$port = (int)$arrHost[1];
+			$port = (int) $arrHost[1];
 		}
 		else
 		{
@@ -125,6 +125,7 @@ class WSClient{
 		}
 		$this->host = $host;
 		$this->port = $port;
+		
 	}
 
 	public function getGroupId()
@@ -140,6 +141,7 @@ class WSClient{
 	{
 		return $this->resourceId;
 	}
+
 	public function send($message)
 	{
 		$maskedMessage = Utility::mask($message);

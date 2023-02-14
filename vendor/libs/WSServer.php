@@ -1,18 +1,21 @@
 <?php
 class WSServer implements WSInterface {
-	public $chatClients = array();
-	public $host = '127.0.0.1';
-	public $port = 8888;
-	public $masterSocket = NULL;
-	public $clientSockets = array();
-	public $dataChunk = 128;
-	public $maxHeaderSize = 2048;
+	protected $chatClients = array();
+	protected $host = '127.0.0.1';
+	protected $port = 8888;
+	protected $masterSocket = NULL;
+	protected $clientSockets = array();
+	protected $dataChunk = 128;
+	protected $maxHeaderSize = 2048;
 
-	public $sessionSavePath = '/';
-	public $sessionFilePrefix = 'sess_';
-	public $sessionCookieName = 'PHPSESSID';
+	protected $sessionSavePath = '/';
+	protected $sessionFilePrefix = 'sess_';
+	protected $sessionCookieName = 'PHPSESSID';
+
+	protected $userOnSystem = array();
 
 	private $sock;
+	private $running = true;
 
 	public function __construct($host = '127.0.0.1', $port = 8888)
 	{
@@ -31,12 +34,26 @@ class WSServer implements WSInterface {
 		$this->sessionSavePath = session_save_path();
 		echo "Server started ad ".$this->port."\r\n";
 	}
+
+	protected function resetUserOnSystem()
+	{
+		$this->userOnSystem = array();
+	}
+	/**
+	 * Set user on system
+	 * @param string $clientIndex Client index
+	 * @param \WSClient $clientChat Chat client
+	 */
+	protected function setUserOnSystem($clientIndex, $clientChat)
+	{
+		$this->userOnSystem[$clientIndex] = $clientChat;
+	}
 	
-	public function run() //NOSONAR
+	public function run()
 	{
 		$index = 0;
-		$null = NULL; //null var
-		while (true) 
+		$null = null; //null var
+		while ($this->running) 
 		{
 			// manage multiple connections
 			$changed = $this->clientSockets;
@@ -58,7 +75,7 @@ class WSServer implements WSInterface {
 					{
 						$index++;
 						socket_getpeername($clientSocket, $remoteAddress, $remotePort); //get ip address of connected socket
-						$chatClient = new WSClient($index, $clientSocket, $header, new \RemoteConnection($remoteAddress, $remotePort), new \SessionParams($this->sessionCookieName, $this->sessionSavePath, $this->sessionFilePrefix), $this, 'onClientLogin');
+						$chatClient = new \WSClient($index, $clientSocket, $header, new \RemoteConnection($remoteAddress, $remotePort), new \SessionParams($this->sessionCookieName, $this->sessionSavePath, $this->sessionFilePrefix), $this, 'onClientLogin');
 						$this->clientSockets[$index] = $clientSocket; //add socket to client array
 						$this->chatClients[$index] = $chatClient;
 						$this->onOpen($chatClient);
@@ -331,19 +348,6 @@ class WSServer implements WSInterface {
         return $decodedData;
     }
 
-	
-	/*
-	public function seal($data) 
-	{
-		return $this->hybi10Encode($data);
-	}
-	public function unseal($data) 
-	{
-		$decodedData = $this->hybi10Decode($data);
-		return $decodedData['payload'];
-	}
-	*/
-
 	public function onClientLogin($clientChat)
 	{
 	}
@@ -385,7 +389,7 @@ class WSServer implements WSInterface {
 	{
 		foreach($this->chatClients as $client) 
 		{
-			if($meeToo || ($clientChat->getResourceId() != $client->getResourceId() && ($receiverGroups == null || $this->groupReceive($receiverGroups, $client->getGroupId()))))
+			if($meeToo || ($clientChat->getResourceId() != $client->getResourceId() && ($receiverGroups == null || empty($receiverGroups) || $this->groupReceive($receiverGroups, $client->getGroupId()))))
 			{
 				$client->send($message);
 			}
@@ -410,4 +414,4 @@ class WSServer implements WSInterface {
 }
 
 
-?>
+
