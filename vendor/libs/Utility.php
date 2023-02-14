@@ -6,7 +6,7 @@ class Utility
 	* @param string $header Request header from client
 	* @return array Associated array of the request header
 	*/
-	public static function parseHeaders($headers)
+	public static function parseRawHeaders($headers)
 	{
 		$headers = trim($headers, "\r\n");
 		$headers = str_replace("\n", "\r\n", $headers);
@@ -45,7 +45,14 @@ class Utility
 				}
 			}
 		}
-		return array('method'=>$arr4[0], 'uri'=>$requestURL, 'path'=>$path, 'query'=>$query, 'version'=>$version, 'headers'=>$arr2);
+		return array(
+			'method'=>$arr4[0], 
+			'uri'=>$requestURL, 
+			'path'=>$path, 
+			'query'=>$query, 
+			'version'=>$version, 
+			'headers'=>$arr2
+		);
 	}
 	/**
 	* Parse cookie
@@ -158,16 +165,13 @@ class Utility
 		}
 		return $return_data;
 	}
-
-
 	
 
 	/**
 	 * Unmask incoming framed message
-	 * @param $text Masked message
+	 * @param string $text Masked message
 	 * @return string Plain text
 	 */
-	 /*
 	public static function unmask($text)
 	{
 		$length = ord($text[1]) & 127;
@@ -193,10 +197,10 @@ class Utility
 		}
 		return $text;
 	}
-	*/
+	
 	/**
 	 * Encode message for transfer to client
-	 * @param $text Plain text to be sent to the client
+	 * @param string $text Plain text to be sent to the client
 	 * @return string Masked message
 	 */
 	public static function mask($text)

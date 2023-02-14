@@ -17,6 +17,12 @@ class WSClient{
 	private $query = array();
 	private $clientData = array();
 
+	private $host = "";
+	private $port = 0;
+
+	private $headerInfo = array();
+
+	private $groupId = "";
 	public $sessionParams;
 
 	/**
@@ -49,40 +55,12 @@ class WSClient{
 		$this->resourceId = $resourceId;
 		$this->socket = $socket;
 		$this->remoteConnection = $remoteConnection;
+		
+		$headerInfo = Utility::parseRawHeaders($headers);
 
+		$this->parseHeaders($headerInfo);	
 		
-		$headerInfo = Utility::parseHeaders($headers);
-		$this->headers = $headerInfo['headers'];
-		$this->method = $headerInfo['method'];
-		$this->uri = $headerInfo['uri'];
-		$this->path = $headerInfo['path'];
-		$this->query = $headerInfo['query'];
-		$this->httpVersion = $headerInfo['version'];
-		
-		if(isset($this->headers['x-forwarded-host']))
-		{
-			$host = $this->headers['x-forwarded-host'];
-		}
-		else if(isset($this->headers['x-forwarded-server']))
-		{
-			$host = $this->headers['x-forwarded-server'];
-		}
-		else
-		{
-			$host = $this->headers['host'];
-		}
-		if(stripos($host, ":") !== false)
-		{
-			$arrHost = explode(":", $host);
-			$host = $arrHost[0];
-			$port = $arrHost[1];
-		}
-		else
-		{
-			$port = "443";
-		}
-		
-		$this->performHandshaking($headers, $host, $port);
+		$this->performHandshaking($headers, $this->host, $this->port);
 		
 		if(isset($this->headers['cookie']))
 		{
@@ -105,6 +83,57 @@ class WSClient{
 		$this->sessions = Utility::getSessions($this->sessionID, $this->sessionParams);
 		
 		$this->clientData = call_user_func(array($obj, $loginCallback), $this); 
+	}
+
+	private function parseHeaders($headerInfo)
+	{
+		$port = 0;
+		$host = "";
+
+		$this->headerInfo = $headerInfo;
+
+		$headers = $headerInfo['headers'];
+
+		$this->headers = $headerInfo['headers'];
+		$this->method = $headerInfo['method'];
+		$this->uri = $headerInfo['uri'];
+		$this->path = $headerInfo['path'];
+		$this->query = $headerInfo['query'];
+		$this->httpVersion = $headerInfo['version'];
+
+		if(isset($headers['x-forwarded-host']))
+		{
+			$host = $headers['x-forwarded-host'];
+		}
+		else if(isset($headers['x-forwarded-server']))
+		{
+			$host = $headers['x-forwarded-server'];
+		}
+		else
+		{
+			$host = $headers['host'];
+		}
+		if(stripos($host, ":") !== false)
+		{
+			$arrHost = explode(":", $host);
+			$host = $arrHost[0];
+			$port = (int)$arrHost[1];
+		}
+		else
+		{
+			$port = 443;
+		}
+		$this->host = $host;
+		$this->port = $port;
+	}
+
+	public function getGroupId()
+	{
+		return $this->groupId;
+	}
+	public function setGroupId($groupId)
+	{
+		return $this->groupId = $groupId;
 	}
 
 	public function getResourceId()

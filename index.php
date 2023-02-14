@@ -15,11 +15,11 @@ if(isset($_SESSION['planet_username']))
 var websocketURL = '';
 if(window.location.protocol.toString() == 'https:')
 {
-	websocketURL = 'wss://<?php echo $_SERVER['SERVER_NAME'];?>/wss.socket/';
+	websocketURL = 'wss://<?php echo $_SERVER['SERVER_NAME'];?>/wss.socket/some-path/?groupId=group1';
 }
 else
 {
-	websocketURL = 'ws://<?php echo $_SERVER['SERVER_NAME'];?>:8888/';
+	websocketURL = 'ws://<?php echo $_SERVER['SERVER_NAME'];?>:8888/some-path/?groupId=group1';
 }
 console.log(window.location.protocol.toString());
 console.log(websocketURL);

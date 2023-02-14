@@ -378,15 +378,26 @@ class WSServer implements WSInterface {
 	 * Method to send the broadcast message to all client
 	 * @param \WSClient $clientChat Chat client
 	 * @param string $message Message to sent to all client
+	 * @param array $receiverGroups Receiver
 	 * @param bool $meeToo
 	 */
-	public function sendBroadcast($clientChat, $message, $meeToo = false)
+	public function sendBroadcast($clientChat, $message, $receiverGroups = null, $meeToo = false)
 	{
 		foreach($this->chatClients as $client) 
 		{
-			if($meeToo || $clientChat->getResourceId() != $client->getResourceId())
-			$client->send($message);
+			if($meeToo || ($clientChat->getResourceId() != $client->getResourceId() && ($receiverGroups == null || $this->groupReceive($receiverGroups, $client->getGroupId()))))
+			{
+				$client->send($message);
+			}
 		}
+	}
+
+	public function groupReceive($receiverGroups, $groupId)
+	{
+		return isset($receiverGroups) 
+		&& is_array($receiverGroups) 
+		&& isset($groupId) 
+		&& in_array($groupId, $receiverGroups);
 	}
 	
 	/**
