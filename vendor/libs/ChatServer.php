@@ -1,6 +1,6 @@
 <?php
 
-class ChatServer extends WSServer implements WSInterface{
+class ChatServer extends WSServer implements WSInterface {
 	public $userOnSystem = array();
 	public function __construct($host = '127.0.0.1', $port = 8888)
 	{
@@ -23,6 +23,7 @@ class ChatServer extends WSServer implements WSInterface{
 	 */
 	public function onOpen($clientChat)
 	{
+		print_r($clientChat);
 		$clientData = $clientChat->getClientData();
 		if(isset($clientData['username']))
 		{
@@ -38,7 +39,7 @@ class ChatServer extends WSServer implements WSInterface{
 					)
 				)
 			);
-			$this->sendBroadcast($response);
+			$this->sendBroadcast($clientChat, $response);
 
 			// Send new user		
 			$response = json_encode(
@@ -49,7 +50,7 @@ class ChatServer extends WSServer implements WSInterface{
 					)
 				)
 			);
-			$this->sendBroadcast($response);
+			$this->sendBroadcast($clientChat, $response);
 			$logInData = array(
 				'command'=>'log-in',
 				'data'=>array(
@@ -98,7 +99,7 @@ class ChatServer extends WSServer implements WSInterface{
 					)
 				)
 			);
-			$this->sendBroadcast($response);
+			$this->sendBroadcast($clientChat, $response);
 
 			// Send new user		
 			$response = json_encode(
@@ -109,7 +110,7 @@ class ChatServer extends WSServer implements WSInterface{
 					)
 				)
 			);
-			$this->sendBroadcast($response);
+			$this->sendBroadcast($clientChat, $response);
 
 
 		}
@@ -205,6 +206,11 @@ class ChatServer extends WSServer implements WSInterface{
 			else if($command == 'check-user-on-system')
 			{
 				$this->checkUserOnSystem($clientChat, $json_message);
+			}
+
+			else if($command == 'broadcast')
+			{
+				$this->sendBroadcast($clientChat, $json_message);
 			}
 		}			
 	}
@@ -359,7 +365,7 @@ class ChatServer extends WSServer implements WSInterface{
 												)
 											)
 										);
-										
+
 										foreach($this->chatClients as $client) 
 										{
 											$current_user_data = $client->getClientData();

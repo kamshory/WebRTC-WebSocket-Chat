@@ -1,8 +1,7 @@
 <?php
 class WSClient{
 	private $socket;
-	private $remoteAddress = '';
-	private $remotePort = 0;
+	private $remoteConnection;
 	private $headers = array();
 	private $cookies = array();
 	private $sessions = array();
@@ -10,13 +9,15 @@ class WSClient{
 	private $sessionFilePrefix = 'sess_';
 	private $sessionCookieName = 'PHPSESSID';
 	private $sessionID = '';
-	private $resourceID = 0;
+	private $resourceId = 0;
 	private $httpVersion = '';
 	private $method = '';
 	private $uri = '';
 	private $path = '';
 	private $query = array();
 	private $clientData = array();
+
+	public $sessionParams;
 
 	/**
 	 * Get client data
@@ -34,28 +35,22 @@ class WSClient{
 	{
 		return $this->sessions;
 	}
-	public function __construct($resourceID, $socket, $headers, $remoteAddress = NULL, $remotePort = NULL, $sessionCookieName = 'PHPSESSID', $sessionSavePath = NULL, $sessionFilePrefix = 'sess_', $obj, $loginCallback)
+	/**
+	 * @param string $resourceId, 
+	 * @param Socket $socket
+	 * @param string $headers
+	 * @param \RemoteConnection $remoteConnection
+	 * @param SessionParams $sessionParams 
+	 * @param \WSServer $obj,
+	 * @param string $loginCallback
+	 */
+	public function __construct($resourceId, $socket, $headers, $remoteConnection, $sessionParams, $obj, $loginCallback)
 	{
-		$this->resourceID = $resourceID;
+		$this->resourceId = $resourceId;
 		$this->socket = $socket;
-		$this->remoteAddress = $remoteAddress;
-		$this->remotePort = $remotePort;
-		if($sessionSavePath === NULL)
-		{
-			$this->sessionSavePath = session_save_path();
-		}
-		else
-		{
-			$this->sessionSavePath = $sessionSavePath;
-		}
-		if($sessionCookieName !== NULL)
-		{
-			$this->sessionCookieName = $sessionCookieName;
-		}
-		if($sessionFilePrefix !== NULL)
-		{
-			$this->sessionFilePrefix = $sessionFilePrefix;
-		}
+		$this->remoteConnection = $remoteConnection;
+
+		
 		$headerInfo = Utility::parseHeaders($headers);
 		$this->headers = $headerInfo['headers'];
 		$this->method = $headerInfo['method'];
@@ -96,12 +91,25 @@ class WSClient{
 		if(isset($this->cookies[$this->sessionCookieName]))
 		{
 			$this->sessionID = $this->cookies[$this->sessionCookieName];
-			$this->sessions = Utility::getSessions($this->sessionID, $this->sessionSavePath, $this->sessionFilePrefix);
+
+		}
+		if($sessionParams === null)
+		{
+			$this->sessionParams = new SessionParams(null, session_save_path(), null);
+		}
+		else
+		{
+			$this->sessionParams = $sessionParams;
 		}
 
-		$this->sessions = Utility::getSessions($this->sessionID, $sessionSavePath, $sessionFilePrefix);
+		$this->sessions = Utility::getSessions($this->sessionID, $this->sessionParams);
 		
 		$this->clientData = call_user_func(array($obj, $loginCallback), $this); 
+	}
+
+	public function getResourceId()
+	{
+		return $this->resourceId;
 	}
 	public function send($message)
 	{

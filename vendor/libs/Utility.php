@@ -89,13 +89,14 @@ class Utility
 	}
 	/**
 	* Get session data
-	* @param string $sessionID Session ID
-	* @param string $sessionSavePath Session save path
-	* @param string $prefix Prefix of the session file name
+	* @param \SessionParams $sessionParams Session parameters
 	* @return array Asociated array contain session
 	*/
-	public static function getSessions($sessionID, $sessionSavePath = NULL, $prefix = "sess_")
+	public static function getSessions($sessionID, $sessionParams)
 	{
+		$prefix = $sessionParams->getSessionFilePrefix();
+		$sessionSavePath = $sessionParams->getSessionSavePath();
+
 		if($sessionSavePath === NULL)
 		{
 			$sessionSavePath = session_save_path();

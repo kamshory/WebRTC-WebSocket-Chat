@@ -1,5 +1,5 @@
 <?php
-class WSServer implements WSInterface{
+class WSServer implements WSInterface {
 	public $chatClients = array();
 	public $host = '127.0.0.1';
 	public $port = 8888;
@@ -58,7 +58,7 @@ class WSServer implements WSInterface{
 					{
 						$index++;
 						socket_getpeername($clientSocket, $remoteAddress, $remotePort); //get ip address of connected socket
-						$chatClient = new WSClient($index, $clientSocket, $header, $remoteAddress, $remotePort, $this->sessionCookieName, $this->sessionSavePath, $this->sessionFilePrefix, $this, 'onClientLogin');
+						$chatClient = new WSClient($index, $clientSocket, $header, new \RemoteConnection($remoteAddress, $remotePort), new \SessionParams($this->sessionCookieName, $this->sessionSavePath, $this->sessionFilePrefix), $this, 'onClientLogin');
 						$this->clientSockets[$index] = $clientSocket; //add socket to client array
 						$this->chatClients[$index] = $chatClient;
 						$this->onOpen($chatClient);
@@ -140,8 +140,7 @@ class WSServer implements WSInterface{
 	}
 
 	 /**
-     * Encodes a frame/message according the the WebSocket protocol standard.
-     
+     * Encodes a frame/message according the the WebSocket protocol standard.     
      * @param $payload
      * @param $type
      * @param $masked
@@ -227,10 +226,8 @@ class WSServer implements WSInterface{
         {
             $frame .= ($masked === true) ? $payload[$i] ^ $mask[$i % 4] : $payload[$i];
         }
-
         return $frame;
     }
-
 
     /**
      * Decodes a frame/message according to the WebSocket protocol standard.
@@ -352,13 +349,11 @@ class WSServer implements WSInterface{
 	}
 	/**
 	 * Method when a new client is connected
-	 * @param $clientChat Chat client
-	 * @param $ip Remote adddress or IP address of the client 
-	 * @param $port Remot port or port number of the client
+	 * @param \WSClient $clientChat Chat client
 	 */
-
 	public function onOpen($clientChat)
 	{
+		
 	}
 	/**
 	 * Method when a new client is disconnected
@@ -371,23 +366,25 @@ class WSServer implements WSInterface{
 	}
 	/**
 	 * Method when a client send the message
-	 * @param \WSClient $clientChat Chat client
+	 * @param $clientChat Chat client
 	 * @param string $receivedText Text sent by the client
 	 * @param string $ip Remote adddress or IP address of the client 
-	 * @param int $port Remot port or port number of the client
+	 * @param int $port Remote port or port number of the client
 	 */
 	public function onMessage($clientChat, $receivedText)
 	{
 	}
-
 	/**
 	 * Method to send the broadcast message to all client
+	 * @param \WSClient $clientChat Chat client
 	 * @param string $message Message to sent to all client
+	 * @param bool $meeToo
 	 */
-	public function sendBroadcast($message)
+	public function sendBroadcast($clientChat, $message, $meeToo = false)
 	{
 		foreach($this->chatClients as $client) 
 		{
+			if($meeToo || $clientChat->getResourceId() != $client->getResourceId())
 			$client->send($message);
 		}
 	}
