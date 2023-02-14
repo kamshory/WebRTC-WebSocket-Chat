@@ -67,7 +67,7 @@ class PlanetWebSocket
 				$this->performHandshaking($header, $socketNew, $this->host, $this->port); //perform websocket handshake
 				socket_getpeername($socketNew, $ip, $port); //get ip address of connected socket
 				$chatClient = new ChatClient($index, $header, $ip, $port);
-				if(isset($chatClient->sessions))
+				if(isset($chatClient->getSessions()))
 				{
 					if($chatClient->login())
 					{

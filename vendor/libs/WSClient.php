@@ -1,22 +1,39 @@
 <?php
 class WSClient{
-	public $socket;
-	public $remoteAddress = '';
-	public $remotePort = 0;
-	public $headers = array();
-	public $cookies = array();
-	public $sessions = array();
-	public $sessionSavePath = '/';
-	public $sessionFilePrefix = 'sess_';
-	public $sessionCookieName = 'PHPSESSID';
-	public $sessionID = '';
-	public $resourceID = 0;
-	public $httpVersion = '';
-	public $method = '';
-	public $uri = '';
-	public $path = '';
-	public $query = array();
-	public $clientData = array();
+	private $socket;
+	private $remoteAddress = '';
+	private $remotePort = 0;
+	private $headers = array();
+	private $cookies = array();
+	private $sessions = array();
+	private $sessionSavePath = '/';
+	private $sessionFilePrefix = 'sess_';
+	private $sessionCookieName = 'PHPSESSID';
+	private $sessionID = '';
+	private $resourceID = 0;
+	private $httpVersion = '';
+	private $method = '';
+	private $uri = '';
+	private $path = '';
+	private $query = array();
+	private $clientData = array();
+
+	/**
+	 * Get client data
+	 * @return array
+	 */
+	public function getClientData()
+	{
+		return $this->clientData;
+	}
+	/**
+	 * Get client data
+	 * @return array
+	 */
+	public function getSessions()
+	{
+		return $this->sessions;
+	}
 	public function __construct($resourceID, $socket, $headers, $remoteAddress = NULL, $remotePort = NULL, $sessionCookieName = 'PHPSESSID', $sessionSavePath = NULL, $sessionFilePrefix = 'sess_', $obj, $loginCallback)
 	{
 		$this->resourceID = $resourceID;
