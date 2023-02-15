@@ -6319,3 +6319,29 @@ Client = Array
  Message = '{"command":"load-message","data":[{"partner_id":"MasRoy","receiver_id":"MasRoy"}]}'
 
 
+Client = Array
+(
+    [login_time] => 2023-02-15 07:17:17
+    [username] => MasRoy
+    [full_name] => Mas Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"Kamshory","receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 07:17:21
+    [username] => Kamshory
+    [full_name] => Kamshory
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"MasRoy","receiver_id":"MasRoy"}]}'
+
+
