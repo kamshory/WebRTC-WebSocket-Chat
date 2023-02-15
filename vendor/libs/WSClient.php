@@ -11,6 +11,7 @@ class WSClient{
 	private $sessionID = '';
 	private $resourceId = 0;
 	private $httpVersion = '';
+	
 	private $method = '';
 	private $uri = '';
 	private $path = '';
@@ -34,7 +35,7 @@ class WSClient{
 		return $this->clientData;
 	}
 	/**
-	 * Get client data
+	 * Get session
 	 * @return array
 	 */
 	public function getSessions()
@@ -141,7 +142,26 @@ class WSClient{
 	{
 		return $this->resourceId;
 	}
-
+	public function getHttpVersion()
+	{
+		return $this->httpVersion;
+	}
+	public function getMethod()
+	{
+		return $this->method;
+	}
+	public function getUri()
+	{
+		return $this->uri;
+	}
+	public function getPath()
+	{
+		return $this->path;
+	}
+	public function getQuery()
+	{
+		return $this->query;
+	}
 	public function send($message)
 	{
 		$maskedMessage = Utility::mask($message);

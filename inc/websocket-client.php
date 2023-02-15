@@ -63,13 +63,17 @@ If the server accepts, it sends a 101 response header, containing
 \*============================================================================*/
 function websocket_open($host = '', $port = 80, $headers = array(), &$error_string = '', $timeout = 10, $ssl = false)
 {
+    $host = $host ? $host : "127.0.0.1";
+    $port = $port < 1 ? 80 : $port;
+
+    $hostOnHeader = $port == 80 ? $host : ($host . ':' . $port);
 
     // Generate a key (to convince server that the update is not random)
     // The key is for the server to prove it i websocket aware. (We know it is)
     $key = base64_encode(openssl_random_pseudo_bytes(16));
 
     $header = "GET / HTTP/1.1\r\n"
-        . "Host: $host\r\n"
+        . "Host: $hostOnHeader\r\n"
         . "pragma: no-cache\r\n"
         . "Upgrade: WebSocket\r\n"
         . "Connection: Upgrade\r\n"
@@ -86,8 +90,7 @@ function websocket_open($host = '', $port = 80, $headers = array(), &$error_stri
     $header .= "\r\n";
 
     // Connect to server
-    $host = $host ? $host : "127.0.0.1";
-    $port = $port < 1 ? 80 : $port;
+    
     $address = ($ssl ? 'ssl://' : '') . $host . ':' . $port;
     $sp = stream_socket_client($address, $errno, $errstr, $timeout);
 
@@ -184,7 +187,7 @@ Note:
 - This implementation waits for the final chunk of data, before returning.
 - Reading data while handling/ignoring other kind of packages
 \*============================================================================*/
-function websocket_read($sp, &$error_string = null)
+function websocket_read($sp, &$error_string = null) //NOSONAR
 {
     $data = "";
 
@@ -246,7 +249,7 @@ function websocket_read($sp, &$error_string = null)
         if ($opcode == 9) {
             // Assamble header: FINal 0x80 | Opcode 0x0A + Mask on 0x80 with zero payload
             fwrite($sp, chr(0x8A) . chr(0x80) . pack("N", rand(1, 0x7FFFFFFF)));
-            continue;
+            continue; //NOSONAR
 
             // Close
         } elseif ($opcode == 8) {
@@ -265,7 +268,7 @@ function websocket_read($sp, &$error_string = null)
             }
 
         } else {
-            continue;
+            continue; //NOSONAR
         }
 
     } while (!$final);

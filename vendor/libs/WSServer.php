@@ -75,7 +75,15 @@ class WSServer implements WSInterface {
 					{
 						$index++;
 						socket_getpeername($clientSocket, $remoteAddress, $remotePort); //get ip address of connected socket
-						$chatClient = new \WSClient($index, $clientSocket, $header, new \RemoteConnection($remoteAddress, $remotePort), new \SessionParams($this->sessionCookieName, $this->sessionSavePath, $this->sessionFilePrefix), $this, 'onClientLogin');
+						$chatClient = new \WSClient(
+							$index, 
+							$clientSocket, 
+							$header, 
+							new \RemoteConnection($remoteAddress, $remotePort), 
+							new \SessionParams($this->sessionCookieName, $this->sessionSavePath, $this->sessionFilePrefix), 
+							$this, 
+							'onClientLogin'
+						);
 						$this->clientSockets[$index] = $clientSocket; //add socket to client array
 						$this->chatClients[$index] = $chatClient;
 						$this->onOpen($chatClient);

@@ -5955,3 +5955,367 @@ Client = Array
  Message = '{"command":"missed-call","data":[{"sender_id":"Malik","receiver_id":"kamshory@yahoo.com"}]}'
 
 
+Client = Array
+(
+    [login_time] => 2023-02-15 06:43:41
+    [username] => 
+    [full_name] => 
+    [avatar] => 
+    [sex] => 
+)
+
+
+ Message = '{"command":"check-user-on-system","data":[{"username":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:44:02
+    [username] => 
+    [full_name] => 
+    [avatar] => 
+    [sex] => 
+)
+
+
+ Message = '{"command":"check-user-on-system","data":[{"username":"MasRoy"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:43:41
+    [username] => Kamshory
+    [full_name] => Kamshory
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"MasRoy","receiver_id":"MasRoy"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:43:41
+    [username] => Kamshory
+    [full_name] => Kamshory
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"send-message","data":[{"partner_id":"MasRoy","receiver_id":"MasRoy","message":{"text":"test","attachment":[]}}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:44:02
+    [username] => MasRoy
+    [full_name] => Mas Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"Kamshory","receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:44:02
+    [username] => MasRoy
+    [full_name] => Mas Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"mark-message","data":[{"receiver_id":"Kamshory","flag":"read","message_list":["63ec1ccbf2a24"]}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:44:18
+    [username] => MasRoy
+    [full_name] => Mas Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"Kamshory","receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:44:26
+    [username] => MasRoy
+    [full_name] => Mas Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"Kamshory","receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:44:29
+    [username] => Kamshory
+    [full_name] => Kamshory
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"MasRoy","receiver_id":"MasRoy"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:46:04
+    [username] => Kamshory
+    [full_name] => Kamshory
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"MasRoy","receiver_id":"MasRoy"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:46:04
+    [username] => MasRoy
+    [full_name] => Mas Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"Kamshory","receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:46:17
+    [username] => Kamshory
+    [full_name] => Kamshory
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"MasRoy","receiver_id":"MasRoy"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:46:18
+    [username] => MasRoy
+    [full_name] => Mas Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"Kamshory","receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:46:55
+    [username] => Kamshory
+    [full_name] => Kamshory
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"MasRoy","receiver_id":"MasRoy"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:46:56
+    [username] => MasRoy
+    [full_name] => Mas Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"Kamshory","receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:47:07
+    [username] => Kamshory
+    [full_name] => Kamshory
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"MasRoy","receiver_id":"MasRoy"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:47:08
+    [username] => MasRoy
+    [full_name] => Mas Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"Kamshory","receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:47:16
+    [username] => MasRoy
+    [full_name] => Mas Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"Kamshory","receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:47:21
+    [username] => Kamshory
+    [full_name] => Kamshory
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"MasRoy","receiver_id":"MasRoy"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:47:30
+    [username] => Kamshory
+    [full_name] => Kamshory
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"MasRoy","receiver_id":"MasRoy"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:47:30
+    [username] => MasRoy
+    [full_name] => Mas Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"Kamshory","receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:47:41
+    [username] => MasRoy
+    [full_name] => Mas Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"Kamshory","receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:47:48
+    [username] => Kamshory
+    [full_name] => Kamshory
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"MasRoy","receiver_id":"MasRoy"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:47:41
+    [username] => MasRoy
+    [full_name] => Mas Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"send-message","data":[{"partner_id":"Kamshory","receiver_id":"Kamshory","message":{"text":"Test","attachment":[]}}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:47:48
+    [username] => Kamshory
+    [full_name] => Kamshory
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"mark-message","data":[{"receiver_id":"MasRoy","flag":"read","message_list":["63ec1dadc6051"]}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:48:59
+    [username] => Kamshory
+    [full_name] => Kamshory
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"MasRoy","receiver_id":"MasRoy"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:49:04
+    [username] => MasRoy
+    [full_name] => Mas Roy
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"Kamshory","receiver_id":"Kamshory"}]}'
+
+
+Client = Array
+(
+    [login_time] => 2023-02-15 06:49:05
+    [username] => Kamshory
+    [full_name] => Kamshory
+    [avatar] => avatar/M.png
+    [sex] => M
+)
+
+
+ Message = '{"command":"load-message","data":[{"partner_id":"MasRoy","receiver_id":"MasRoy"}]}'
+
+

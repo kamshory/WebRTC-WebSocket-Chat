@@ -22,6 +22,7 @@ class ChatServer extends WSServer implements WSInterface {
 	 */
 	public function onOpen($clientChat)
 	{
+		print_r($clientChat);
 		$clientData = $clientChat->getClientData();
 		if(isset($clientData['username']))
 		{
@@ -37,7 +38,7 @@ class ChatServer extends WSServer implements WSInterface {
 					)
 				)
 			);
-			$this->sendBroadcast($clientChat, $response);
+			$this->sendBroadcast($clientChat, $response, null, true);
 
 			// Send new user		
 			$response = json_encode(
@@ -48,7 +49,7 @@ class ChatServer extends WSServer implements WSInterface {
 					)
 				)
 			);
-			$this->sendBroadcast($clientChat, $response);
+			$this->sendBroadcast($clientChat, $response, null, true);
 			$logInData = array(
 				'command'=>'log-in',
 				'data'=>array(
@@ -97,7 +98,7 @@ class ChatServer extends WSServer implements WSInterface {
 					)
 				)
 			);
-			$this->sendBroadcast($clientChat, $response);
+			$this->sendBroadcast($clientChat, $response, null, true);
 
 			// Send new user		
 			$response = json_encode(
@@ -108,7 +109,7 @@ class ChatServer extends WSServer implements WSInterface {
 					)
 				)
 			);
-			$this->sendBroadcast($clientChat, $response);
+			$this->sendBroadcast($clientChat, $response, null, true);
 		}
 	}
 	/**
