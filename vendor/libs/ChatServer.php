@@ -22,7 +22,6 @@ class ChatServer extends WSServer implements WSInterface {
 	 */
 	public function onOpen($clientChat)
 	{
-		print_r($clientChat);
 		$clientData = $clientChat->getClientData();
 		if(isset($clientData['username']))
 		{

@@ -1,6 +1,6 @@
 <?php
 @session_start();
-require "inc/websocket-client.php";
+require_once "inc/websocket-client.php";
 $server = '127.0.0.1';
 $port = 8888;
 
@@ -56,4 +56,3 @@ else
 {
 	require_once "login-form.php";
 }
-?>

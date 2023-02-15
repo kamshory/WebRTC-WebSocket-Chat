@@ -3,18 +3,18 @@ class Utility
 {
 	/**
 	* Parse request header
-	* @param string $header Request header from client
+	* @param string $rawHeaders Request header from client
 	* @return array Associated array of the request header
 	*/
-	public static function parseRawHeaders($headers)
+	public static function parseRawHeaders($rawHeaders)
 	{
-		$headers = trim($headers, "\r\n");
-		$headers = str_replace("\n", "\r\n", $headers);
-		$headers = str_replace("\r\r\n", "\r\n", $headers);
-		$headers = str_replace("\r", "\r\n", $headers);
-		$headers = str_replace("\r\n\n", "\r\n", $headers);
-		$arr = explode("\r\n", $headers);
-		$arr2 = array();
+		$rawHeaders = trim($rawHeaders, "\r\n");
+		$rawHeaders = str_replace("\n", "\r\n", $rawHeaders);
+		$rawHeaders = str_replace("\r\r\n", "\r\n", $rawHeaders);
+		$rawHeaders = str_replace("\r", "\r\n", $rawHeaders);
+		$rawHeaders = str_replace("\r\n\n", "\r\n", $rawHeaders);
+		$arr = explode("\r\n", $rawHeaders);
+		$headers = array();
 		
 		$firstLine = $arr[0];
 		$arr4 = explode(" ", $firstLine);
@@ -41,25 +41,25 @@ class Utility
 				$arr3 = explode(": ", $value, 2);
 				if(count($arr3) == 2)
 				{
-					$arr2[strtolower($arr3[0])] = $arr3[1];
+					$headers[strtolower($arr3[0])] = $arr3[1];
 				}
 			}
 		}
 		return array(
-			'method'=>$arr4[0], 
+			'method'=>$method, 
 			'uri'=>$requestURL, 
 			'path'=>$path, 
 			'query'=>$query, 
 			'version'=>$version, 
-			'headers'=>$arr2
+			'headers'=>$headers
 		);
 	}
 	/**
-	* Parse cookie
-	* @param string $cookieString Cookie from client
+	* Parse raw cookies
+	* @param string $cookieString Raw cookies from client
 	* @return array Associated array of the cookie
 	*/
-	public static function parseCookie($cookieString)
+	public static function parseRawCookies($cookieString)
 	{
 		$cookieData = array();
 		$arr = explode("; ", $cookieString);

@@ -5,43 +5,21 @@ class WSClient{
 	private $headers = array();
 	private $cookies = array();
 	private $sessions = array();
-	private $sessionSavePath = '/';
-	private $sessionFilePrefix = 'sess_';
-	private $sessionCookieName = 'PHPSESSID';
 	private $sessionID = '';
 	private $resourceId = 0;
 	private $httpVersion = '';
-	
 	private $method = '';
 	private $uri = '';
 	private $path = '';
 	private $query = array();
 	private $clientData = array();
-
 	private $host = "";
 	private $port = 0;
-
 	private $headerInfo = array();
-
 	private $groupId = "";
 	public $sessionParams;
-
-	/**
-	 * Get client data
-	 * @return array
-	 */
-	public function getClientData()
-	{
-		return $this->clientData;
-	}
-	/**
-	 * Get session
-	 * @return array
-	 */
-	public function getSessions()
-	{
-		return $this->sessions;
-	}
+	
+	
 	/**
 	 * @param string $resourceId, 
 	 * @param Socket $socket
@@ -65,23 +43,24 @@ class WSClient{
 		
 		if(isset($this->headers['cookie']))
 		{
-			$this->cookies = Utility::parseCookie($this->headers['cookie']);
+			$this->cookies = Utility::parseRawCookies($this->headers['cookie']);
 		}
-		if(isset($this->cookies[$this->sessionCookieName]))
-		{
-			$this->sessionID = $this->cookies[$this->sessionCookieName];
 
-		}
 		if($sessionParams === null)
 		{
-			$this->sessionParams = new SessionParams(null, session_save_path(), null);
+			$this->setSessionParams(new SessionParams(null, session_save_path(), null));
 		}
 		else
 		{
-			$this->sessionParams = $sessionParams;
+			$this->setSessionParams($sessionParams);
+		}
+		$sessionName = $this->getSessionParams()->getSessionCookieName();
+		if(isset($this->cookies[$sessionName]))
+		{
+			$this->setSessionID($this->cookies[$sessionName]);
 		}
 
-		$this->sessions = Utility::getSessions($this->sessionID, $this->sessionParams);
+		$this->setSessions(Utility::getSessions($this->getSessionID(), $this->getSessionParams()));
 		
 		$this->clientData = call_user_func(array($obj, $loginCallback), $this); 
 	}
@@ -125,48 +104,16 @@ class WSClient{
 			$port = 443;
 		}
 		$this->host = $host;
-		$this->port = $port;
-		
+		$this->port = $port;	
 	}
 
-	public function getGroupId()
-	{
-		return $this->groupId;
-	}
-	public function setGroupId($groupId)
-	{
-		return $this->groupId = $groupId;
-	}
 
-	public function getResourceId()
-	{
-		return $this->resourceId;
-	}
-	public function getHttpVersion()
-	{
-		return $this->httpVersion;
-	}
-	public function getMethod()
-	{
-		return $this->method;
-	}
-	public function getUri()
-	{
-		return $this->uri;
-	}
-	public function getPath()
-	{
-		return $this->path;
-	}
-	public function getQuery()
-	{
-		return $this->query;
-	}
 	public function send($message)
 	{
 		$maskedMessage = Utility::mask($message);
 		@socket_write($this->socket, $maskedMessage, strlen($maskedMessage));
 	}
+
 	/**
 	 * Handshake new client
 	 * @param $recevedHeader Request header sent by the client
@@ -199,8 +146,6 @@ class WSClient{
 				. "Sec-WebSocket-Accept: $secAccept\r\n"
 				. "Access-Control-Allow-Origin: *\r\n"
 				. "X-Engine: PlanetChat\r\n\r\n";
-//				echo $recevedHeader."\r\n\r\n";
-//				echo $upgrade;
 			socket_write($this->socket, $upgrade, strlen($upgrade));
 		}
 	}
@@ -210,17 +155,277 @@ class WSClient{
 	{
 		return true;
 	}
-	public function parseCookie($cookie_string)
-	{
-		$cookie_data = array();
-		$arr = explode("; ", $cookie_string);
-		foreach($arr as $key=>$val)
-		{
-			$arr2 = explode("=", $val, 2);
-			$cookie_data[$arr2[0]] = $arr2[1];
-		}
-		return $cookie_data;
-	}  
 
+
+
+	/**
+	 * Get the value of sessionParams
+	 * @return \SessionParams
+	 */ 
+	public function getSessionParams()
+	{
+		return $this->sessionParams;
+	}
+
+	/**
+	 * Set the value of sessionParams
+	 * @param \SessionParams $sessionParams
+	 * @return  self
+	 */ 
+	public function setSessionParams($sessionParams)
+	{
+		$this->sessionParams = $sessionParams;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of headerInfo
+	 * @return array
+	 */ 
+	public function getHeaderInfo()
+	{
+		return $this->headerInfo;
+	}
+
+	/**
+	 * Set the value of headerInfo
+	 * @param array $headerInfo
+	 *
+	 * @return  self
+	 */ 
+	public function setHeaderInfo($headerInfo)
+	{
+		$this->headerInfo = $headerInfo;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of remoteConnection
+	 */ 
+	public function getRemoteConnection()
+	{
+		return $this->remoteConnection;
+	}
+
+	/**
+	 * Set the value of remoteConnection
+	 *
+	 * @return  self
+	 */ 
+	public function setRemoteConnection($remoteConnection)
+	{
+		$this->remoteConnection = $remoteConnection;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of resourceId
+	 * @return int
+	 */ 
+	public function getResourceId()
+	{
+		return $this->resourceId;
+	}
+
+	/**
+	 * Set the value of resourceId
+	 *
+	 * @return  self
+	 */ 
+	public function setResourceId($resourceId)
+	{
+		$this->resourceId = $resourceId;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of httpVersion
+	 * @return string
+	 */ 
+	public function getHttpVersion()
+	{
+		return $this->httpVersion;
+	}
+
+	/**
+	 * Set the value of httpVersion
+	 *
+	 * @return  self
+	 */ 
+	public function setHttpVersion($httpVersion)
+	{
+		$this->httpVersion = $httpVersion;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of method
+	 * @return string
+	 */ 
+	public function getMethod()
+	{
+		return $this->method;
+	}
+
+	/**
+	 * Set the value of method
+	 *
+	 * @return  self
+	 */ 
+	public function setMethod($method)
+	{
+		$this->method = $method;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of uri
+	 * @return string
+	 */ 
+	public function getUri()
+	{
+		return $this->uri;
+	}
+
+	/**
+	 * Set the value of uri
+	 *
+	 * @return  self
+	 */ 
+	public function setUri($uri)
+	{
+		$this->uri = $uri;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of groupId
+	 * @return string
+	 */ 
+	public function getGroupId()
+	{
+		return $this->groupId;
+	}
+
+	/**
+	 * Set the value of groupId
+	 *
+	 * @return  self
+	 */ 
+	public function setGroupId($groupId)
+	{
+		$this->groupId = $groupId;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of path
+	 */ 
+	public function getPath()
+	{
+		return $this->path;
+	}
+
+	/**
+	 * Set the value of path
+	 *
+	 * @return  self
+	 */ 
+	public function setPath($path)
+	{
+		$this->path = $path;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of query
+	 * @return array
+	 */ 
+	public function getQuery()
+	{
+		return $this->query;
+	}
+
+	/**
+	 * Set the value of query
+	 *
+	 * @return  self
+	 */ 
+	public function setQuery($query)
+	{
+		$this->query = $query;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of sessionID
+	 * @return string
+	 */ 
+	public function getSessionID()
+	{
+		return $this->sessionID;
+	}
+
+	/**
+	 * Set the value of sessionID
+	 *
+	 * @return  self
+	 */ 
+	public function setSessionID($sessionID)
+	{
+		$this->sessionID = $sessionID;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of sessions
+	 */ 
+	public function getSessions()
+	{
+		return $this->sessions;
+	}
+
+	/**
+	 * Set the value of sessions
+	 *
+	 * @return  self
+	 */ 
+	public function setSessions($sessions)
+	{
+		$this->sessions = $sessions;
+
+		return $this;
+	}
+
+	/**
+	 * Get the value of clientData
+	 * @return array
+	 */ 
+	public function getClientData()
+	{
+		return $this->clientData;
+	}
+
+	/**
+	 * Set the value of clientData
+	 *
+	 * @return  self
+	 */ 
+	public function setClientData($clientData)
+	{
+		$this->clientData = $clientData;
+
+		return $this;
+	}
 }
-?>
