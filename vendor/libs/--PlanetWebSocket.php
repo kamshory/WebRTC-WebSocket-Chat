@@ -321,7 +321,7 @@ class PlanetWebSocket
 	 */
 	public function __destruct()
 	{
-		socket_close($this->sock);
+		socket_close($this->socket);
 	}
 }
 
