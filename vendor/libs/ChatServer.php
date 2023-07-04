@@ -123,8 +123,6 @@ class ChatServer extends WSServer implements WSInterface{
 	{
 		$json_message = json_decode($receivedText, true); 
 		
-		$fp = fopen(dirname(__FILE__)."/log.txt", "a"); fputs($fp, "Client = ".print_r($clientChat->clientData, true)."\r\n\r\n Message = '".($receivedText)."'\r\n\r\n\r\n"); fclose($fp);
-		
 		if(isset($json_message['command']))
 		{
 			$command = $json_message['command'];
@@ -177,10 +175,6 @@ class ChatServer extends WSServer implements WSInterface{
 			else if($command == 'video-call')
 			{
 				$this->videoCall($clientChat, $json_message); 
-			}
-			else if($command == 'voice-call')
-			{
-				$this->voiceCall($clientChat, $json_message); 
 			}
 			else if($command == 'on-call')
 			{

@@ -3,7 +3,7 @@ class WSServer implements WSInterface{
 	public $chatClients = array();
 	public $host = '127.0.0.1';
 	public $port = 8888;
-	public $masterSocket = NULL;
+	public $masterSocket = null;
 	public $clientSockets = array();
 	public $dataChunk = 128;
 	public $maxHeaderSize = 2048;
@@ -12,13 +12,16 @@ class WSServer implements WSInterface{
 	public $sessionFilePrefix = 'sess_';
 	public $sessionCookieName = 'PHPSESSID';
 
+	private $changed;
+
+
 	public function __construct($host = '127.0.0.1', $port = 8888)
 	{
 		$this->host = $host;
 		$this->port = $port;
 
 		$this->masterSocket = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
-		//stream_set_blocking($this->masterSocket, 0);
+		// stream_set_blocking($this->masterSocket, 0);
 		// reuseable port
 		socket_set_option($this->masterSocket, SOL_SOCKET, SO_REUSEADDR, 1);
 		// bind socket to specified host
@@ -33,18 +36,18 @@ class WSServer implements WSInterface{
 	public function run()
 	{
 		$index = 0;
-		$null = NULL; //null var
+		$null = null; //null var
 		while (true) 
 		{
 			// manage multiple connections
-			$changed = $this->clientSockets;
-			// returns the socket resources in $changed array
-			if(@socket_select($changed, $null, $null, 0, 10000) < 1)
+			$this->changed = $this->clientSockets;
+			// returns the socket resources in $this->changed array
+			if(@socket_select($this->changed, $null, $null, 0, 10000) < 1)
 			{
 				continue;
 			}
 			// check for new socket
-			if (in_array($this->masterSocket, $changed)) 
+			if (in_array($this->masterSocket, $this->changed)) 
 			{
 				$clientSocket = socket_accept($this->masterSocket); //accpet new socket
 				//stream_set_blocking($clientSocket, 0);
@@ -60,15 +63,15 @@ class WSServer implements WSInterface{
 						$this->clientSockets[$index] = $clientSocket; //add socket to client array
 						$this->chatClients[$index] = $chatClient;
 						$this->onOpen($chatClient);
-						$foundSocket = array_search($this->masterSocket, $changed);
-						unset($changed[$foundSocket]);
+						$foundSocket = array_search($this->masterSocket, $this->changed);
+						unset($this->changed[$foundSocket]);
 					}
 				}
 			}
-			if(is_array($changed))
+			if(is_array($this->changed))
 			{
 				//loop through all connected sockets
-				foreach ($changed as $index => $changeSocket) 
+				foreach ($this->changed as $index => $changeSocket) 
 				{
 					//check for any incomming data
 					
@@ -93,25 +96,6 @@ class WSServer implements WSInterface{
 						}
 					}
 					while($recv > 0);
-					/*
-					do
-					{
-						$buf1 = socket_read($changeSocket, $this->dataChunk,  PHP_NORMAL_READ);
-						print_r($buf1);
-						if($buf1 !== false)
-						{
-							$buffer .= $buf1;
-							$nread++;
-						}
-						else
-						{
-						}
-					}
-					while($buf1 !== false);
-					*/
-					
-									
-						
 						
 					if($nread > 0)
 					{
@@ -166,8 +150,12 @@ class WSServer implements WSInterface{
 		   
 			// get a list of all the clients that have data to be read from
 			// if there are no clients with data, go to next iteration
-			if (@socket_select($read, $write = NULL, $except = NULL, 0) < 1)
+			$write  = NULL;
+			$except = NULL;
+			if (@socket_select($read,  $write, $except, 0) < 1)
+			{
 				continue;
+			}
 		   
 			// check if there is a client trying to connect
 			if (in_array($this->masterSocket, $read)) 
@@ -222,7 +210,7 @@ class WSServer implements WSInterface{
 						$this->chatClients[$index] = $chatClient;
 						echo "onOpen\r\n";
 						$this->onOpen($chatClient);
-						$foundSocket = array_search($this->masterSocket, $changed);
+						$foundSocket = array_search($this->masterSocket, $this->changed);
 						unset($read[$foundSocket]);
 					}
 					
@@ -249,19 +237,14 @@ class WSServer implements WSInterface{
 		// close the listening socket
 		socket_close($this->masterSocket);
 	}
-	
-	
-	
-	
-	
-	
+
 	public function seal($data) 
 	{
-		return $this->hybi10Encode($data);
+		return Utility::hybi10Encode($data);
 	}
 	public function unseal($data) 
 	{
-		$decodedData = $this->hybi10Decode($data);
+		$decodedData = Utility::hybi10Decode($data);
 		return $decodedData['payload'];
 	}
 
@@ -308,14 +291,13 @@ class WSServer implements WSInterface{
 		}
 	}
 
-	
-	/**
+
 	/**
 	 * Destructor
 	 */
 	public function __destruct()
 	{
-		socket_close($this->sock);
+		
 	}
 }
 

@@ -4,7 +4,7 @@ class Utility
 	/**
 	* Parse request header
 	* @param $header Request header from client
-	* @return Associated array of the request header
+	* @return array of the request header
 	*/
 	public static function parseHeaders($headers)
 	{
@@ -180,7 +180,7 @@ class Utility
      * @throws \RuntimeException
      * @return string
      */
-    public function hybi10Encode($payload, $type = 'text', $masked = true)
+    public static function hybi10Encode($payload, $type = 'text', $masked = true)
     {
         $frameHead = array();
         $payloadLength = strlen($payload);
@@ -220,7 +220,6 @@ class Utility
             // most significant bit MUST be 0 (close connection if frame too big)
             if ($frameHead[2] > 127) 
             {
-                $this->close(1004);
                 throw new \RuntimeException('Invalid payload. Could not encode frame.');
             }
         } elseif ($payloadLength > 125) 
@@ -269,7 +268,7 @@ class Utility
      * @param $data
      * @return array
      */
-    public function hybi10Decode($data)
+    public static function hybi10Decode($data)
     {
         $unmaskedPayload = '';
         $decodedData = array();
@@ -428,7 +427,7 @@ class Utility
 	 */
 	public static function utf8ToEntities($string)
 	{
-		if (!@ereg("[\200-\237]",$string) && !@ereg("[\241-\377]",$string))
+		if (!@preg_match("[\200-\237]",$string) && !@preg_match("[\241-\377]",$string))
 			return $string;
 		$string = preg_replace("/[\302-\375]([\001-\177])/","&#65533;\\1",$string);
 		$string = preg_replace("/[\340-\375].([\001-\177])/","&#65533;\\1",$string);
