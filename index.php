@@ -28,7 +28,7 @@ console.log(websocketURL);
 <script type="text/javascript" src="tab-control.js"></script>
 <script type="text/javascript" src="ringtone.js"></script>
 <script type="text/javascript" src="chat.js?rand=<?php echo mt_rand(1,99999999);?>"></script>
-<script type="text/javascript" src="lib.languages/en/?rand=<?php echo mt_rand(1,99999999);?>"></script>
+<script type="text/javascript" src="lib.languages/en/index.php?rand=<?php echo mt_rand(1,99999999);?>"></script>
 <style type="text/css">
 
 </style>
