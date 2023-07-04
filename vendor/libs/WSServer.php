@@ -13,8 +13,6 @@ class WSServer implements WSInterface{
 	public $sessionCookieName = 'PHPSESSID';
 
 	private $changed;
-
-
 	public function __construct($host = '127.0.0.1', $port = 8888)
 	{
 		$this->host = $host;
@@ -140,103 +138,7 @@ class WSServer implements WSInterface{
 		}
 	}
 	
-	public function run3()
-	{
-   		$index = 0;
-		while (true) 
-		{
-			// create a copy, so $this->masterSocket doesn't get modified by socket_select()
-			$read = $this->clientSockets;
-		   
-			// get a list of all the clients that have data to be read from
-			// if there are no clients with data, go to next iteration
-			$write  = NULL;
-			$except = NULL;
-			if (@socket_select($read,  $write, $except, 0) < 1)
-			{
-				continue;
-			}
-		   
-			// check if there is a client trying to connect
-			if (in_array($this->masterSocket, $read)) 
-			{
-				// accept the client, and add him to the $this->clientSockets array
-				$clientSocket = socket_accept($this->masterSocket);
-			   	$this->clientSockets[$index] = $clientSocket;
-				// send the client a welcome message
-			   
-				socket_getpeername($clientSocket, $ip);
-				echo "New client connected: {$ip}\n";
-			   
-				// remove the listening socket from the clients-with-data array
-				$key = array_search($this->masterSocket, $read);
-				unset($read[$key]);
-			}
-		   
-			// loop through all the clients that have data to read from
-			foreach ($read as $read_sock) 
-			{
-				// read until newline or 1024 bytes
-				// socket_read while show errors when the client is disconnected, so silence the error messages
-				$data = @socket_read($read_sock, 1024, PHP_NORMAL_READ);
-			   
-				// check if the client is disconnected
-				if ($data === false) 
-				{
-					// remove client for $this->clientSockets array
-					
-					$key = array_search($read_sock, $this->clientSockets);
-					unset($this->clientSockets[$key]);
-					echo "client disconnected.\n";
-					// continue to the next client to read from, if any
-					continue;
-				}
-			   
-				// trim off the trailing/beginning white spaces
-				$data = trim($data);
-			   
-				// check if there is any data after trimming off the spaces
-				if (!empty($data)) {
-			   
-					// send this to all the clients in the $this->clientSockets array (except the first one, which is a listening socket)
-					
-					$header = $data;
-					echo 'data = '.$data."\r\n";
-					if(stripos($header, 'Sec-WebSocket-Key') !== false)
-					{
-						socket_getpeername($read_sock, $remoteAddress, $remotePort); //get ip address of connected socket
-						echo "header = $header\r\n";
-						$chatClient = new WSClient($index, $read_sock, $header, $remoteAddress, $remotePort, $this->sessionCookieName, $this->sessionSavePath, $this->sessionFilePrefix, $this, 'onClientLogin');
-						$this->chatClients[$index] = $chatClient;
-						echo "onOpen\r\n";
-						$this->onOpen($chatClient);
-						$foundSocket = array_search($this->masterSocket, $this->changed);
-						unset($read[$foundSocket]);
-					}
-					
-					foreach ($this->clientSockets as $send_sock) {
-				   
-						// if its the listening sock or the client that we got the message from, go to the next one in the list
-						if ($send_sock == $this->masterSocket || $send_sock == $read_sock)
-							continue;
-					   
-						// write the message to the client -- add a newline character to the end of the message
-						socket_write($send_sock, $data."\n");
-					   
-					} // end of broadcast foreach
-				   
-				}
-				else
-				{
-					
-				}
-			   
-			} // end of reading foreach
-		}
 	
-		// close the listening socket
-		socket_close($this->masterSocket);
-	}
 
 	public function seal($data) 
 	{

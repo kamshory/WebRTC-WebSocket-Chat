@@ -2,17 +2,29 @@
 class Utility
 {
 	/**
+	 * Fix cariage return
+	 *
+	 * @param string $text
+	 * @return string
+	 */
+	public static function fixCariageReturn($text)
+	{
+		$text = trim($text, "\r\n");
+		$text = str_replace("\n", "\r\n", $text);
+		$text = str_replace("\r\r\n", "\r\n", $text);
+		$text = str_replace("\r", "\r\n", $text);
+		$text = str_replace("\r\n\n", "\r\n", $text);
+		return $text;
+	}
+
+	/**
 	* Parse request header
-	* @param $header Request header from client
+	* @param string $header Request header from client
 	* @return array of the request header
 	*/
 	public static function parseHeaders($headers)
 	{
-		$headers = trim($headers, "\r\n");
-		$headers = str_replace("\n", "\r\n", $headers);
-		$headers = str_replace("\r\r\n", "\r\n", $headers);
-		$headers = str_replace("\r", "\r\n", $headers);
-		$headers = str_replace("\r\n\n", "\r\n", $headers);
+		$headers = self::fixCariageReturn($headers);
 		$arr = explode("\r\n", $headers);
 		$arr2 = array();
 		
@@ -50,7 +62,7 @@ class Utility
 	/**
 	* Parse cookie
 	* @param $cookieString Cookie from client
-	* @return Associated array of the cookie
+	* @return array of the cookie
 	*/
 	public static function parseCookie($cookieString)
 	{
@@ -69,7 +81,7 @@ class Utility
 	/**
 	* Read cookie
 	* @param $cookieData Associated array of the cookie
-	* @return name Cooke name
+	* @return string Cooke name
 	*/
 	public static function readCookie($cookieData, $name)
 	{
@@ -92,7 +104,7 @@ class Utility
 	* @param $sessionID Session ID
 	* @param $sessionSavePath Session save path
 	* @param $prefix Prefix of the session file name
-	* @return Asociated array contain session
+	* @return array contain session
 	*/
 	public static function getSessions($sessionID, $sessionSavePath = NULL, $prefix = "sess_")
 	{
@@ -111,11 +123,12 @@ class Utility
 				return $sessions;
 			}
 		}
+		return $sessions;
 	}
 	/**
 	* Decode session data
-	* @param sessionData Raw session data
-	* @return Asociated array contain session
+	* @param string Raw session data
+	* @return array contain session
 	*/
 	public static function sessionDecode($sessionData) 
 	{
@@ -139,8 +152,8 @@ class Utility
 	}
 	/**
 	* Decode binary session data
-	* @param sessionData Raw session data
-	* @return Asociated array contain session
+	* @param string Raw session data
+	* @return array contain session
 	*/
 	public static function sessionDecodeBinary($sessionData) 
 	{
@@ -159,12 +172,6 @@ class Utility
 		return $return_data;
 	}
 
-	/*
-	public static function mask($payload, $type = 'text', $masked = true)
-	{
-		return Utility::hybi10Encode($payload, $type = 'text', $masked = true);
-	}
-	*/
 	public static function unmask($data)
 	{
 		return Utility::hybi10Decode($data);
@@ -174,9 +181,9 @@ class Utility
 	 /**
      * Encodes a frame/message according the the WebSocket protocol standard.
      
-     * @param $payload
-     * @param $type
-     * @param $masked
+     * @param string $payload
+     * @param string $type
+     * @param bool $masked
      * @throws \RuntimeException
      * @return string
      */
@@ -222,7 +229,8 @@ class Utility
             {
                 throw new \RuntimeException('Invalid payload. Could not encode frame.');
             }
-        } elseif ($payloadLength > 125) 
+        } 
+		else if ($payloadLength > 125) 
         {
             $payloadLengthBin = str_split(sprintf('%016b', $payloadLength), 8);
             $frameHead[1] = ($masked === true) ? 254 : 126;
@@ -265,7 +273,7 @@ class Utility
     /**
      * Decodes a frame/message according to the WebSocket protocol standard.
      *
-     * @param $data
+     * @param string $data
      * @return array
      */
     public static function hybi10Decode($data)
@@ -333,7 +341,7 @@ class Utility
             $dataLength = $payloadLength + $payloadOffset;
         }
 
-        /**
+        /*
          * We have to check for large frames here. socket_recv cuts at 1024 bytes
          * so if websocket-frame is > 1024 bytes we have to wait until whole
          * data is transferd.
@@ -366,40 +374,8 @@ class Utility
 
 
 	/**
-	 * Unmask incoming framed message
-	 * @param $text Masked message
-	 * @return string Plain text
-	 */
-	 /*
-	public static function unmask($text)
-	{
-		$length = ord($text[1]) & 127;
-		if ($length == 126) 
-		{
-			$masks = substr($text, 4, 4);
-			$data = substr($text, 8);
-		} 
-		else if ($length == 127) 
-		{
-			$masks = substr($text, 10, 4);
-			$data = substr($text, 14);
-		} 
-		else 
-		{
-			$masks = substr($text, 2, 4);
-			$data = substr($text, 6);
-		}
-		$text = "";
-		for ($i = 0; $i < strlen($data); ++$i) 
-		{
-			$text.= $data[$i] ^ $masks[$i % 4];
-		}
-		return $text;
-	}
-	*/
-	/**
 	 * Encode message for transfer to client
-	 * @param $text Plain text to be sent to the client
+	 * @param string $text Plain text to be sent to the client
 	 * @return string Masked message
 	 */
 	public static function mask($text)
@@ -420,9 +396,10 @@ class Utility
 		} 
 		return $header . $text;
 	}
-	/*
+
+	/**
 	 * Convert UTF-8 to 8 bits HTML Entity code
-	 * @param $string String to be converted
+	 * @param string String to be converted
 	 * @return string 8 bits HTML Entity code
 	 */
 	public static function utf8ToEntities($string)
@@ -457,4 +434,3 @@ class Utility
 	}
 
 }
-?>

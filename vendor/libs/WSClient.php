@@ -17,13 +17,13 @@ class WSClient{
 	public $path = '';
 	public $query = array();
 	public $clientData = array();
-	public function __construct($resourceID, $socket, $headers, $remoteAddress = NULL, $remotePort = NULL, $sessionCookieName = 'PHPSESSID', $sessionSavePath = NULL, $sessionFilePrefix = 'sess_', $obj, $loginCallback)
+	public function __construct($resourceID, $socket, $headers, $remoteAddress = null, $remotePort = null, $sessionCookieName = 'PHPSESSID', $sessionSavePath = null, $sessionFilePrefix = 'sess_', $obj = null, $loginCallback = null)
 	{
 		$this->resourceID = $resourceID;
 		$this->socket = $socket;
 		$this->remoteAddress = $remoteAddress;
 		$this->remotePort = $remotePort;
-		if($sessionSavePath === NULL)
+		if($sessionSavePath === null)
 		{
 			$this->sessionSavePath = session_save_path();
 		}
@@ -31,11 +31,11 @@ class WSClient{
 		{
 			$this->sessionSavePath = $sessionSavePath;
 		}
-		if($sessionCookieName !== NULL)
+		if($sessionCookieName !== null)
 		{
 			$this->sessionCookieName = $sessionCookieName;
 		}
-		if($sessionFilePrefix !== NULL)
+		if($sessionFilePrefix !== null)
 		{
 			$this->sessionFilePrefix = $sessionFilePrefix;
 		}

@@ -66,7 +66,7 @@ class PlanetWebSocket
 				$header = socket_read($socketNew, 1024); //read data sent by the socket
 				$this->performHandshaking($header, $socketNew, $this->host, $this->port); //perform websocket handshake
 				socket_getpeername($socketNew, $ip, $port); //get ip address of connected socket
-				$chatClient = new ChatClient($index, $header, $ip, $port);
+				$chatClient = new WSClient($index, $socketNew, $header, $ip, $port);
 				if(isset($chatClient->sessions))
 				{
 					if($chatClient->login())
@@ -288,7 +288,7 @@ class PlanetWebSocket
 	 */
 	public function UTF8ToEntities($string)
 	{
-		if (!@ereg("[\200-\237]",$string) && !@ereg("[\241-\377]",$string))
+		if (!@preg_match("[\200-\237]", $string) && !@preg_match("[\241-\377]", $string))
 			return $string;
 		$string = preg_replace("/[\302-\375]([\001-\177])/","&#65533;\\1",$string);
 		$string = preg_replace("/[\340-\375].([\001-\177])/","&#65533;\\1",$string);
@@ -321,7 +321,7 @@ class PlanetWebSocket
 	 */
 	public function __destruct()
 	{
-		socket_close($this->sock);
+		
 	}
 }
 
