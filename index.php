@@ -38,7 +38,7 @@ console.log(websocketURL);
 <div class="all">
 <div class="wrapper">
   <div class="sidebar">
-  	<ul>
+  	<ul class="link">
     	<li><a href="logout.php">Logout</a></li>
     </ul>
     <div class="user-list-area">
