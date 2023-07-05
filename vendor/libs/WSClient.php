@@ -1,22 +1,22 @@
 <?php
 class WSClient{
-	public $socket;
-	public $remoteAddress = '';
-	public $remotePort = 0;
-	public $headers = array();
-	public $cookies = array();
-	public $sessions = array();
-	public $sessionSavePath = '/';
-	public $sessionFilePrefix = 'sess_';
-	public $sessionCookieName = 'PHPSESSID';
-	public $sessionID = '';
-	public $resourceID = 0;
-	public $httpVersion = '';
-	public $method = '';
-	public $uri = '';
-	public $path = '';
-	public $query = array();
-	public $clientData = array();
+	private $socket;
+	private $remoteAddress = '';
+	private $remotePort = 0;
+	private $headers = array();
+	private $cookies = array();
+	private $sessions = array();
+	private $sessionSavePath = '/';
+	private $sessionFilePrefix = 'sess_';
+	private $sessionCookieName = 'PHPSESSID';
+	private $sessionID = '';
+	private $resourceID = 0;
+	private $httpVersion = '';
+	private $method = '';
+	private $uri = '';
+	private $path = '';
+	private $query = array();
+	private $clientData = array();
 	public function __construct($resourceID, $socket, $headers, $remoteAddress = null, $remotePort = null, $sessionCookieName = 'PHPSESSID', $sessionSavePath = null, $sessionFilePrefix = 'sess_', $obj = null, $loginCallback = null)
 	{
 		$this->resourceID = $resourceID;
@@ -123,8 +123,6 @@ class WSClient{
 				. "Sec-WebSocket-Accept: $secAccept\r\n"
 				. "Access-Control-Allow-Origin: *\r\n"
 				. "X-Engine: PlanetChat\r\n\r\n";
-//				echo $recevedHeader."\r\n\r\n";
-//				echo $upgrade;
 			socket_write($this->socket, $upgrade, strlen($upgrade));
 		}
 	}
@@ -146,5 +144,22 @@ class WSClient{
 		return $cookie_data;
 	}  
 
+
+	/**
+	 * Get the value of sessions
+	 * @return array
+	 */ 
+	public function getSessions()
+	{
+		return $this->sessions;
+	}
+
+	/**
+	 * Get the value of clientData
+	 * @return array
+	 */ 
+	public function getClientData()
+	{
+		return $this->clientData;
+	}
 }
-?>

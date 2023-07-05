@@ -106,10 +106,10 @@ class Utility
 	* @param $prefix Prefix of the session file name
 	* @return array contain session
 	*/
-	public static function getSessions($sessionID, $sessionSavePath = NULL, $prefix = "sess_")
+	public static function getSessions($sessionID, $sessionSavePath = null, $prefix = "sess_")
 	{
 		$sessions = array();
-		if($sessionSavePath === NULL)
+		if($sessionSavePath === null)
 		{
 			$sessionSavePath = session_save_path();
 		}
@@ -119,7 +119,7 @@ class Utility
 			$session_text = file_get_contents($path);
 			if($session_text != '')
 			{
-				$sessions = Utility::sessionDecode($session_text);
+				$sessions = self::sessionDecode($session_text);
 				return $sessions;
 			}
 		}
@@ -174,7 +174,7 @@ class Utility
 
 	public static function unmask($data)
 	{
-		return Utility::hybi10Decode($data);
+		return self::hybi10Decode($data);
 	}
 
 

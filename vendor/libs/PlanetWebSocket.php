@@ -4,28 +4,28 @@ class PlanetWebSocket
 	/**
 	 * Server host
 	*/
-	public $host = '127.0.0.1';
+	private $host = '127.0.0.1';
 	/**
 	 * Server port
 	 */
-	public $port = 8888;	
+	private $port = 8888;	
 	/**
 	 * Socket
 	 */
-	public $socket = NULL;
+	private $socket = NULL;
 	/**
 	 * Client ports
 	 */
-	public $clients = array();
+	private $clients = array();
 	/**
 	 * Client object
 	 */
-	public $chatClients = array();
-	public $maxDataSize = 65536;
+	private $chatClients = array();
+	private $maxDataSize = 65536;
 	
-	public $application = NULL;
+	private $application = NULL;
 	
-	public $clientObject = NULL;
+	private $clientObject = NULL;
 	
 	/**
 	* Constructor
@@ -67,7 +67,7 @@ class PlanetWebSocket
 				$this->performHandshaking($header, $socketNew, $this->host, $this->port); //perform websocket handshake
 				socket_getpeername($socketNew, $ip, $port); //get ip address of connected socket
 				$chatClient = new WSClient($index, $socketNew, $header, $ip, $port);
-				if(isset($chatClient->sessions))
+				if($chatClient->getSessions() != null)
 				{
 					if($chatClient->login())
 					{
@@ -321,7 +321,7 @@ class PlanetWebSocket
 	 */
 	public function __destruct()
 	{
-		
+		socket_close($this->socket);
 	}
 }
 

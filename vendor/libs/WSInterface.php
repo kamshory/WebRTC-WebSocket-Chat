@@ -5,5 +5,3 @@ interface WSInterface {
    public function onClose($clientChat); 
    public function onMessage($clientChat, $receivedText); 
 }  
-
-?>

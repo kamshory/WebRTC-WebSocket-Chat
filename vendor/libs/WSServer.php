@@ -31,7 +31,7 @@ class WSServer implements WSInterface{
 		echo "Server started ad ".$this->port."\r\n";
 	}
 	
-	public function run()
+	public function run() // NOSONAR
 	{
 		$index = 0;
 		$null = null; //null var
@@ -199,9 +199,6 @@ class WSServer implements WSInterface{
 	 */
 	public function __destruct()
 	{
-		
+		socket_close($this->masterSocket);
 	}
 }
-
-
-?>
