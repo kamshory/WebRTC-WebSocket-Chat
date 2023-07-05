@@ -86,6 +86,13 @@ class WSClient{
 		
 		$this->clientData = call_user_func(array($obj, $loginCallback), $this); 
 	}
+
+	/**
+	 * Send message to client
+	 *
+	 * @param string $message
+	 * @return void
+	 */
 	public function send($message)
 	{
 		$maskedMessage = Utility::mask($message);
@@ -93,9 +100,8 @@ class WSClient{
 	}
 	/**
 	 * Handshake new client
-	 * @param $recevedHeader Request header sent by the client
-	 * @param $client_conn Client connection
-	 * @param $host Host name of the websocket server
+	 * @param string $recevedHeader Request header sent by the client
+	 * @param string $host Host name of the websocket server
 	 * @param integer $port Port number of the websocket server
 	 */
 	public function performHandshaking($recevedHeader, $host, $port)
@@ -128,14 +134,26 @@ class WSClient{
 	}
 	
 
+	/**
+	 * Login
+	 *
+	 * @return void
+	 */
 	public function login()
 	{
 		return true;
 	}
-	public function parseCookie($cookie_string)
+
+	/**
+	 * Parse cookie
+	 *
+	 * @param [type] $cookieString
+	 * @return string
+	 */
+	public function parseCookie($cookieString)
 	{
 		$cookie_data = array();
-		$arr = explode("; ", $cookie_string);
+		$arr = explode("; ", $cookieString);
 		foreach($arr as $key=>$val)
 		{
 			$arr2 = explode("=", $val, 2);
@@ -161,5 +179,14 @@ class WSClient{
 	public function getClientData()
 	{
 		return $this->clientData;
+	}
+
+	/**
+	 * Get the value of resourceID
+	 * @return integer
+	 */ 
+	public function getResourceID()
+	{
+		return $this->resourceID;
 	}
 }

@@ -250,9 +250,9 @@ class PlanetWebSocket
 	}
 	/**
 	 * Handshake new client
-	 * @param $recevedHeader Request header sent by the client
+	 * @param string $recevedHeader Request header sent by the client
 	 * @param $client_conn Client connection
-	 * @param $host Host name of the websocket server
+	 * @param string $host Host name of the websocket server
 	 * @param integer $port Port number of the websocket server
 	 */
 	public function performHandshaking($recevedHeader, $client_conn, $host, $port)
