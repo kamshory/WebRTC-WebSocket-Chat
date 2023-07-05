@@ -112,9 +112,9 @@ class PlanetWebSocket
 	}
 	/**
 	 * Method when a new client is connected
-	 * @param $clientChat Chat client
-	 * @param $ip Remote adddress or IP address of the client 
-	 * @param $port Remot port or port number of the client
+	 * @param WSClient $clientChat Chat client
+	 * @param string $ip Remote adddress or IP address of the client 
+	 * @param integer $port Remot port or port number of the client
 	 */
 	public function onOpen($clientChat, $ip = '', $port = 0)
 	{
@@ -130,9 +130,9 @@ class PlanetWebSocket
 	}
 	/**
 	 * Method when a new client is disconnected
-	 * @param $clientChat Chat client
-	 * @param $ip Remote adddress or IP address of the client 
-	 * @param $port Remot port or port number of the client
+	 * @param WSClient $clientChat Chat client
+	 * @param string $ip Remote adddress or IP address of the client 
+	 * @param integer $port Remot port or port number of the client
 	 */
 	public function onClose($clientChat, $ip = '', $port = 0)
 	{
@@ -148,10 +148,10 @@ class PlanetWebSocket
 	}
 	/**
 	 * Method when a client send the message
-	 * @param $clientChat Chat client
-	 * @param $receivedText Text sent by the client
-	 * @param $ip Remote adddress or IP address of the client 
-	 * @param $port Remot port or port number of the client
+	 * @param WSClient $clientChat Chat client
+	 * @param string $receivedText Text sent by the client
+	 * @param string $ip Remote adddress or IP address of the client 
+	 * @param integer $port Remot port or port number of the client
 	 */
 	public function onMessage($clientChat, $receivedText, $ip = '', $port = 0)
 	{
@@ -253,7 +253,7 @@ class PlanetWebSocket
 	 * @param $recevedHeader Request header sent by the client
 	 * @param $client_conn Client connection
 	 * @param $host Host name of the websocket server
-	 * @param $port Port number of the websocket server
+	 * @param integer $port Port number of the websocket server
 	 */
 	public function performHandshaking($recevedHeader, $client_conn, $host, $port)
 	{

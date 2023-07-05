@@ -117,7 +117,7 @@ class ChatServer extends WSServer implements WSInterface{
 	/**
 	 * Method when a client send the message
 	 * @param WSClient $clientChat Chat client
-	 * @param $receivedText Text sent by the client
+	 * @param string $receivedText Text sent by the client
 	 */
 	public function onMessage($clientChat, $receivedText)
 	{

@@ -96,7 +96,7 @@ class WSClient{
 	 * @param $recevedHeader Request header sent by the client
 	 * @param $client_conn Client connection
 	 * @param $host Host name of the websocket server
-	 * @param $port Port number of the websocket server
+	 * @param integer $port Port number of the websocket server
 	 */
 	public function performHandshaking($recevedHeader, $host, $port)
 	{
