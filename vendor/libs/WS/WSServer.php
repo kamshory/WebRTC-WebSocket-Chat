@@ -1,4 +1,7 @@
 <?php
+
+namespace WS;
+
 class WSServer implements WSInterface{
 	public $chatClients = array();
 	public $host = '127.0.0.1';

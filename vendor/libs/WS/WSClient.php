@@ -1,4 +1,8 @@
 <?php
+
+namespace WS;
+
+
 class WSClient{
 	private $socket;
 	private $remoteAddress = '';
@@ -137,7 +141,7 @@ class WSClient{
 	/**
 	 * Login
 	 *
-	 * @return void
+	 * @return boolean
 	 */
 	public function login()
 	{
@@ -147,8 +151,8 @@ class WSClient{
 	/**
 	 * Parse cookie
 	 *
-	 * @param [type] $cookieString
-	 * @return string
+	 * @param string $cookieString
+	 * @return array
 	 */
 	public function parseCookie($cookieString)
 	{

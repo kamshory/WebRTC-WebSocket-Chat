@@ -1,5 +1,7 @@
 <?php
 
+namespace WS;
+
 class ChatServer extends WSServer implements WSInterface{
 	private $userOnSystem = array();
 	public function __construct($host = '127.0.0.1', $port = 8888)
@@ -67,13 +69,20 @@ class ChatServer extends WSServer implements WSInterface{
 	{
 		// Here are the client data
 		// You can define it yourself
-		$clientData = array(
-			'login_time'=>date('Y-m-d H:i:s'), 
-			'username'=>$clientChat->getSessions()['planet_username'], 
-			'full_name'=>$clientChat->getSessions()['planet_full_name'],
-			'avatar'=>$clientChat->getSessions()['planet_avatar'],
-			'sex'=>$clientChat->getSessions()['planet_sex']
-		);
+		if(is_array($clientChat->getSessions()) && !empty($clientChat->getSessions()))
+		{
+			$clientData = array(
+				'login_time'=>date('Y-m-d H:i:s'), 
+				'username'=>$clientChat->getSessions()['planet_username'], 
+				'full_name'=>$clientChat->getSessions()['planet_full_name'],
+				'avatar'=>$clientChat->getSessions()['planet_avatar'],
+				'sex'=>$clientChat->getSessions()['planet_sex']
+			);
+		}
+		else
+		{
+			$clientData = array();
+		}
 		return $clientData;
 	}
 	/**

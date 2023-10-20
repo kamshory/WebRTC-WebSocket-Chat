@@ -1,6 +1,10 @@
 <?php
 
-class ZeroArgumentException extends \Exception
+namespace WS;
+
+use Exception;
+
+class ZeroArgumentException extends Exception
 {
     /**
      * Previous exception

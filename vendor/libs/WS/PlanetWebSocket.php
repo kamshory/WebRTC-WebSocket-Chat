@@ -1,4 +1,7 @@
 <?php
+
+namespace WS;
+
 class PlanetWebSocket
 {
 	/**
@@ -188,7 +191,7 @@ class PlanetWebSocket
 	 * Method to send message to a client
 	 * @param $changeSocket Client socket
 	 * @param $message Message to sent to all client
-	 * @return string Masked message
+	 * @return void
 	 */
 	public function sendMessage($changeSocket, $message)
 	{

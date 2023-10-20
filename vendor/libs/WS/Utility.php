@@ -1,4 +1,9 @@
 <?php
+
+namespace WS;
+
+use Exception;
+
 class Utility
 {
 	/**
