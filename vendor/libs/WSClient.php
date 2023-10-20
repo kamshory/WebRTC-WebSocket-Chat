@@ -189,4 +189,13 @@ class WSClient{
 	{
 		return $this->resourceID;
 	}
+
+	/**
+	 * Get the value of path
+	 * @return string
+	 */ 
+	public function getPath()
+	{
+		return $this->path;
+	}
 }
