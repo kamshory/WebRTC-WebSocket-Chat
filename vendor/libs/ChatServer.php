@@ -1,7 +1,5 @@
 <?php
 
-namespace WS;
-
 class ChatServer extends WSServer implements WSInterface{
 	private $userOnSystem = array();
 	public function __construct($host = '127.0.0.1', $port = 8888)
@@ -69,21 +67,19 @@ class ChatServer extends WSServer implements WSInterface{
 	{
 		// Here are the client data
 		// You can define it yourself
-		if(is_array($clientChat->getSessions()) && !empty($clientChat->getSessions()))
+		
+		$session = $clientChat->getSessions();
+		if(!empty($session))
 		{
-			$clientData = array(
+			return array(
 				'login_time'=>date('Y-m-d H:i:s'), 
-				'username'=>$clientChat->getSessions()['planet_username'], 
-				'full_name'=>$clientChat->getSessions()['planet_full_name'],
-				'avatar'=>$clientChat->getSessions()['planet_avatar'],
-				'sex'=>$clientChat->getSessions()['planet_sex']
+				'username'=>$session['planet_username'], 
+				'full_name'=>$session['planet_full_name'],
+				'avatar'=>$session['planet_avatar'],
+				'sex'=>$session['planet_sex']
 			);
 		}
-		else
-		{
-			$clientData = array();
-		}
-		return $clientData;
+		return array();
 	}
 	/**
 	 * Method when a new client is disconnected
@@ -126,7 +122,7 @@ class ChatServer extends WSServer implements WSInterface{
 	/**
 	 * Method when a client send the message
 	 * @param WSClient $clientChat Chat client
-	 * @param string $receivedText Text sent by the client
+	 * @param $receivedText Text sent by the client
 	 */
 	public function onMessage($clientChat, $receivedText)
 	{
@@ -134,14 +130,16 @@ class ChatServer extends WSServer implements WSInterface{
 		
 		if(isset($json_message['command']))
 		{
+			$clientData = $clientChat->getClientData();
+			
 			$command = $json_message['command'];
 			$unique_id = uniqid();
 			$json_message['data'][0]['read'] = false;
 			$json_message['data'][0]['unique_id'] = $unique_id;
 			$json_message['data'][0]['timestamp'] = round(microtime(true)*1000);
 			$json_message['data'][0]['date_time'] = date('j F Y H:i:s');
-			$json_message['data'][0]['sender_name'] = $clientChat->getClientData()['full_name'];
-			$json_message['data'][0]['sender_id'] = $clientChat->getClientData()['username'];
+			$json_message['data'][0]['sender_name'] = isset($clientData['full_name']) ? $clientData['full_name'] : "";
+			$json_message['data'][0]['sender_id'] = isset($clientData['username']) ? $clientData['username'] : "";
 			
 			if(isset($json_message['data'][0]['receiver_id']))
 			{

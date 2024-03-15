@@ -1,8 +1,4 @@
 <?php
-
-namespace WS;
-
-
 class WSClient{
 	private $socket;
 	private $remoteAddress = '';
@@ -90,13 +86,6 @@ class WSClient{
 		
 		$this->clientData = call_user_func(array($obj, $loginCallback), $this); 
 	}
-
-	/**
-	 * Send message to client
-	 *
-	 * @param string $message
-	 * @return void
-	 */
 	public function send($message)
 	{
 		$maskedMessage = Utility::mask($message);
@@ -104,9 +93,10 @@ class WSClient{
 	}
 	/**
 	 * Handshake new client
-	 * @param string $recevedHeader Request header sent by the client
-	 * @param string $host Host name of the websocket server
-	 * @param integer $port Port number of the websocket server
+	 * @param $recevedHeader Request header sent by the client
+	 * @param $client_conn Client connection
+	 * @param $host Host name of the websocket server
+	 * @param $port Port number of the websocket server
 	 */
 	public function performHandshaking($recevedHeader, $host, $port)
 	{
@@ -138,26 +128,14 @@ class WSClient{
 	}
 	
 
-	/**
-	 * Login
-	 *
-	 * @return boolean
-	 */
 	public function login()
 	{
 		return true;
 	}
-
-	/**
-	 * Parse cookie
-	 *
-	 * @param string $cookieString
-	 * @return array
-	 */
-	public function parseCookie($cookieString)
+	public function parseCookie($cookie_string)
 	{
 		$cookie_data = array();
-		$arr = explode("; ", $cookieString);
+		$arr = explode("; ", $cookie_string);
 		foreach($arr as $key=>$val)
 		{
 			$arr2 = explode("=", $val, 2);
@@ -183,23 +161,5 @@ class WSClient{
 	public function getClientData()
 	{
 		return $this->clientData;
-	}
-
-	/**
-	 * Get the value of resourceID
-	 * @return integer
-	 */ 
-	public function getResourceID()
-	{
-		return $this->resourceID;
-	}
-
-	/**
-	 * Get the value of path
-	 * @return string
-	 */ 
-	public function getPath()
-	{
-		return $this->path;
 	}
 }

@@ -56,4 +56,3 @@ else
 {
 	require_once "login-form.php";
 }
-?>

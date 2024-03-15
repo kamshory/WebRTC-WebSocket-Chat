@@ -1,11 +1,5 @@
 <?php
 
-namespace WS;
-
-use ReflectionClass;
-use ReflectionMethod;
-use ReflectionProperty;
-
 class PicoAnnotationParser
 {
     /**

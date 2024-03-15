@@ -1,7 +1,4 @@
 <?php
-
-namespace WS;
-
 class WSServer implements WSInterface{
 	public $chatClients = array();
 	public $host = '127.0.0.1';
@@ -51,7 +48,7 @@ class WSServer implements WSInterface{
 			if (in_array($this->masterSocket, $this->changed)) 
 			{
 				$clientSocket = socket_accept($this->masterSocket); //accpet new socket
-				// stream_set_blocking($clientSocket, 0);
+				//stream_set_blocking($clientSocket, 0);
 				$header = socket_read($clientSocket, $this->maxHeaderSize); //read data sent by the socket
 				$header = trim($header, " \r\n ");
 				if(strlen($header) > 2)
@@ -158,28 +155,28 @@ class WSServer implements WSInterface{
 	}
 	/**
 	 * Method when a new client is connected
-	 * @param WSClient $clientChat Chat client
-	 * @param string $ip Remote adddress or IP address of the client 
-	 * @param integer $port Remot port or port number of the client
+	 * @param $clientChat Chat client
+	 * @param $ip Remote adddress or IP address of the client 
+	 * @param $port Remot port or port number of the client
 	 */
 	public function onOpen($clientChat)
 	{
 	}
 	/**
 	 * Method when a new client is disconnected
-	 * @param WSClient $clientChat Chat client
-	 * @param string $ip Remote adddress or IP address of the client 
-	 * @param integer $port Remot port or port number of the client
+	 * @param $clientChat Chat client
+	 * @param $ip Remote adddress or IP address of the client 
+	 * @param $port Remot port or port number of the client
 	 */
 	public function onClose($clientChat)
 	{
 	}
 	/**
 	 * Method when a client send the message
-	 * @param WSClient $clientChat Chat client
-	 * @param string $receivedText Text sent by the client
-	 * @param string $ip Remote adddress or IP address of the client 
-	 * @param integer $port Remot port or port number of the client
+	 * @param $clientChat Chat client
+	 * @param $receivedText Text sent by the client
+	 * @param $ip Remote adddress or IP address of the client 
+	 * @param $port Remot port or port number of the client
 	 */
 	public function onMessage($clientChat, $receivedText)
 	{

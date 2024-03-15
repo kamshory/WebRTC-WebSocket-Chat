@@ -951,23 +951,26 @@ span.video-call::before{
 	background-color:rgba(0,0,0,0.4);
 }
 
-
-.sidebar .link{
+.sidebar ul, .sidebar ul{
 	list-style-type: none;
-	padding: 0;
 	margin: 0;
+	padding: 0;
 }
 
-.sidebar .link li{
-	padding: 0;
-	margin: 0;
-}
-
-.sidebar .link a {
-	display: block;
-	background-color: #257E93;
-	padding: 5px 10px;
-	border-radius: 3px;
+.btn {
+	cursor: pointer;
+	display: inline-block;
+	padding: 10px 20px;
 	text-decoration: none;
-	color: #FFFFFF;
-  }
+	color: white;
+	text-align: center;
+	box-sizing: border-box;
+}
+.sidebar .btn{
+	display: block;
+}
+  
+.btn-danger {
+	background-color: #FA896B;
+	border-color: #FA896B;
+}

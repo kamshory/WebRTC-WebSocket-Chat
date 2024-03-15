@@ -1,7 +1,4 @@
 <?php
-
-namespace WS;
-
 class PlanetWebSocket
 {
 	/**
@@ -115,9 +112,9 @@ class PlanetWebSocket
 	}
 	/**
 	 * Method when a new client is connected
-	 * @param WSClient $clientChat Chat client
-	 * @param string $ip Remote adddress or IP address of the client 
-	 * @param integer $port Remot port or port number of the client
+	 * @param $clientChat Chat client
+	 * @param $ip Remote adddress or IP address of the client 
+	 * @param $port Remot port or port number of the client
 	 */
 	public function onOpen($clientChat, $ip = '', $port = 0)
 	{
@@ -133,9 +130,9 @@ class PlanetWebSocket
 	}
 	/**
 	 * Method when a new client is disconnected
-	 * @param WSClient $clientChat Chat client
-	 * @param string $ip Remote adddress or IP address of the client 
-	 * @param integer $port Remot port or port number of the client
+	 * @param $clientChat Chat client
+	 * @param $ip Remote adddress or IP address of the client 
+	 * @param $port Remot port or port number of the client
 	 */
 	public function onClose($clientChat, $ip = '', $port = 0)
 	{
@@ -151,10 +148,10 @@ class PlanetWebSocket
 	}
 	/**
 	 * Method when a client send the message
-	 * @param WSClient $clientChat Chat client
-	 * @param string $receivedText Text sent by the client
-	 * @param string $ip Remote adddress or IP address of the client 
-	 * @param integer $port Remot port or port number of the client
+	 * @param $clientChat Chat client
+	 * @param $receivedText Text sent by the client
+	 * @param $ip Remote adddress or IP address of the client 
+	 * @param $port Remot port or port number of the client
 	 */
 	public function onMessage($clientChat, $receivedText, $ip = '', $port = 0)
 	{
@@ -191,7 +188,7 @@ class PlanetWebSocket
 	 * Method to send message to a client
 	 * @param $changeSocket Client socket
 	 * @param $message Message to sent to all client
-	 * @return void
+	 * @return string Masked message
 	 */
 	public function sendMessage($changeSocket, $message)
 	{
@@ -253,10 +250,10 @@ class PlanetWebSocket
 	}
 	/**
 	 * Handshake new client
-	 * @param string $recevedHeader Request header sent by the client
+	 * @param $recevedHeader Request header sent by the client
 	 * @param $client_conn Client connection
-	 * @param string $host Host name of the websocket server
-	 * @param integer $port Port number of the websocket server
+	 * @param $host Host name of the websocket server
+	 * @param $port Port number of the websocket server
 	 */
 	public function performHandshaking($recevedHeader, $client_conn, $host, $port)
 	{
